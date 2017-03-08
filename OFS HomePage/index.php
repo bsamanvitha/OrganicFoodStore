@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Heroic Features - Start Bootstrap Template</title>
+    <title>Home Page</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -52,25 +52,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About Us</a>
+                        <a href="aboutus.php">About Us</a>
                     </li>
                     <li>
-                        <a href="#">Log In</a>
+                        <a href="login.php">Log In</a>
                     </li>
                      <li>
-                        <a href="#">Fruits</a>
+                        <a href="fruits.php">Fruits</a>
                     </li>
                      <li>
-                        <a href="#">Vegetables</a>
+                        <a href="vegetables.php">Vegetables</a>
                     </li>
                     <li>
-                        <a href="#">Dairy</a>
+                        <a href=dairy.php">Dairy</a>
                     </li>
                     <li>
-                        <a href="#">Contact Us</a>
+                        <a href="contactus.php">Contact Us</a>
                     </li>
                      <li>
-                        <a href="#">Shopping Cart</a>
+                        <a href="shoppingcart.php">Shopping Cart</a>
                     </li>
                 </ul>
             </div>
