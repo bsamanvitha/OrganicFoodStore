@@ -64,7 +64,7 @@
                         <a href="vegetables.php">Vegetables</a>
                     </li>
                     <li>
-                        <a href=dairy.php">Dairy</a>
+                        <a href="dairy.php">Dairy</a>
                     </li>
                     <li>
                         <a href="contactus.php">Contact Us</a>
