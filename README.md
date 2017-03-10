@@ -6,8 +6,11 @@ CS 160 Software Engineering Project
 
 ### setting up from scratch
 1. create new folder 'OrganicFoodStore' with directory: /path-to-XAMPP/xammpfiles/htdocs/OrganicFoodStore
-2. add remote
+2. init repo and add remote
 
+   ```
+   git init
+   ```
    ```
    git remote add origin https://github.com/samanvithab/OrganicFoodStore.git
    ```
