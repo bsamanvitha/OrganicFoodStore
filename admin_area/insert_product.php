@@ -16,7 +16,7 @@
 
 	<form action="insert_product.php" method="post" enctype=multipart/form-data">
 		<table align="center" width="700" border="2" bgcolor="yellow">
-		
+		<!-- <?php phpinfo(); ?> !-->
 			<tr align="center">
 				<td colspan="8"><h2>Insert New Post Here</h2></td>
 			</tr>
@@ -55,7 +55,7 @@
 			</tr>
 			<tr>
 				<td align="center">Product Price:</td>
-				<td><input type="text" name="product_price"/></td>
+				<td><input type="text" name="product_price" required/></td>
 			</tr>
 			<tr>
 				<td align="center">Product Description:</td>
@@ -63,11 +63,11 @@
 			</tr>
 			<tr>
 				<td align="center">Product Image:</td>
-				<td><input type="file" name="product_image"/></td>
+				<td><input type="file" name="product_image" required/></td>
 			</tr>
 			<tr>
 				<td align="center">Product Keywords:</td>
-				<td><input type="text" name="product_keywords" size="50"/></td>
+				<td><input type="text" name="product_keywords" size="50" required/></td>
 			</tr>
 			
 			<tr align="center">
@@ -84,27 +84,20 @@
 	//if this particular SUBMIT button is clicked
 	if(isset($_POST['insert_post'])){
 		//setting values in database to submitted field values
-		$product_title = (isset($_POST['product_title']) ? $_POST['product_title'] : null);
-		$product_cat = (isset($_POST['product_cat']) ? $_POST['product_cat'] : null);
-		$product_price = (isset($_POST['product_price']) ? $_POST['product_price'] : null);
-		$product_desc = (isset($_POST['product_desc']) ? $_POST['product_desc'] : null);
-		$product_keywords = (isset($_POST['product_keywords']) ? $_POST['product_keywords'] : null);
-	
-		//need an if statement to handle error statement (doesn't matter, but make cleaner)
-		if(isset($_FILES['product_image']) && count($_FILES['product_image']['error']) == 1 && $_FILES['product_image']['error'][0] > 0){
-   		 //file not selected
-		} else if(isset($_FILES['product_image'])){ //this is just to check if isset($_FILE). Not required.
-   		 //file selected
-   			$product_image = $_FILES['product_image']['name'];
-			$product_image_tmp = $_FILES['product_image']['tmp_name'];
-		}
+		$product_title = $_POST['product_title'];
+		$product_cat = $_POST['product_cat'];
+		$product_price = $_POST['product_price'];
+		$product_desc = $_POST['product_desc'];
+		$product_keywords = $_POST['product_keywords'];
 	
 		//get the image from the field; using _FILE, not _POST
-		//$product_image = $_FILES['product_image']['name'];
-		//$product_image_tmp = $_FILES['product_image']['tmp_name'];
+		$product_image = $_FILES['product_image']['name'];
+		$product_image_tmp = $_FILES['product_image']['tmp_name'];
 		// ^ tmp (temporary) name AKA default name
 		
 		//insert the data into the DB
-		$insert_product = "";
+		echo $insert_product = "insert into products
+		(product_title,product_cat,product_price,product_desc,product_image,product_keywords) values 
+		('$product_title','$product_cat','$product_price','$product_desc','$product_image','$product_keywords')";
 	}
 ?>
