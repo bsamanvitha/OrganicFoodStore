@@ -18,7 +18,7 @@
 		<table align="center" width="700" border="2" bgcolor="yellow">
 		<!-- <?php phpinfo(); ?> !-->
 			<tr align="center">
-				<td colspan="8"><h2>Insert New Post Here</h2></td>
+				<td colspan="8"><h2>Insert New Product Here</h2></td>
 			</tr>
 			<tr>
 				<td align="center">Product Title:</td>
@@ -27,7 +27,7 @@
 			<tr>
 				<td align="center">Product Category:</td>
 				<td>
-				<select name=""product_cat" required>
+				<select name="product_cat" required>
 					<option>Select a Category</option>
 				<!--display existing categories-->
 				<?php
@@ -67,7 +67,7 @@
 			</tr>
 			<tr>
 				<td align="center">Product Keywords:</td>
-				<td><input type="text" name="product_keywords" size="50" required/></td>
+				<td><input type="text" name="product_keywords" size="50" required /></td>
 			</tr>
 			
 			<tr align="center">
@@ -81,21 +81,23 @@
 <?php
 	//isset means if something is clicked, etc. like the submit button
 	//insert post using post method --> submit button name="insert_post"
-	//if this particular SUBMIT button is clicked
+	//if this particular SUBMIT button is clicked, retrieve all values in variables
 	if(isset($_POST['insert_post'])){
 		//setting values in database to submitted field values
 		$product_title = $_POST['product_title'];
-		$product_cat = $_POST['product_cat'];
+		$product_cat = $_POST['product_cat']; //gets the category ID
 		$product_price = $_POST['product_price'];
 		$product_desc = $_POST['product_desc'];
 		$product_keywords = $_POST['product_keywords'];
-	
-		//get the image from the field; using _FILE, not _POST
-		$product_image = $_FILES['product_image']['name'];
-		$product_image_tmp = $_FILES['product_image']['tmp_name'];
-		// ^ tmp (temporary) name AKA default name
 		
+		if(isset($_FILES['product_image'])){
+			//get the image from the field; using _FILE, not _POST
+			$product_image = $_FILES['product_image']['name'];
+			$product_image_tmp = $_FILES['product_image']['tmp_name'];
+			// ^ tmp (temporary) name AKA default name
+		}
 		//insert the data into the DB
+		//print_r($_FILES); //see what's in $_FILES --> returns array
 		echo $insert_product = "insert into products
 		(product_title,product_cat,product_price,product_desc,product_image,product_keywords) values 
 		('$product_title','$product_cat','$product_price','$product_desc','$product_image','$product_keywords')";
