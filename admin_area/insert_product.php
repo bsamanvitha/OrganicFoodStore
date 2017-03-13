@@ -14,7 +14,7 @@
 <body bgcolor="skyblue">
 
 
-	<form action="insert_product.php" method="post" enctype=multipart/form-data">
+	<form action="insert_product.php" method="post" enctype="multipart/form-data">
 		<table align="center" width="700" border="2" bgcolor="yellow">
 		<!-- <?php phpinfo(); ?> !-->
 			<tr align="center">
@@ -75,9 +75,10 @@
 			</tr>
 		
 		</table>
-
+	</form>
 </body>
 </html>
+
 <?php
 	//isset means if something is clicked, etc. like the submit button
 	//insert post using post method --> submit button name="insert_post"
