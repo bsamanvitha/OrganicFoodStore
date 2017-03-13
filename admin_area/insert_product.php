@@ -96,11 +96,24 @@
 			$product_image = $_FILES['product_image']['name'];
 			$product_image_tmp = $_FILES['product_image']['tmp_name'];
 			// ^ tmp (temporary) name AKA default name
+		
+			//upload image to our folder inside our root
+			move_uploaded_file($product_image_tmp, "product_images/$product_image"); //upload tmp to productimages folder & it will have its own name
+		
 		}
 		//insert the data into the DB
 		//print_r($_FILES); //see what's in $_FILES --> returns array
-		echo $insert_product = "insert into products
+		$insert_product = "insert into products
 		(product_title,product_cat,product_price,product_desc,product_image,product_keywords) values 
 		('$product_title','$product_cat','$product_price','$product_desc','$product_image','$product_keywords')";
+		
+		
+		$insert_pro = mysqli_query($con, $insert_product); //connection that we already established in our 2nd file db.php
+		
+		if($insert_pro){
+			echo "<script>alert('Success! The product has been added to the DB.')</script>";
+			echo "<script>window.open('insert_product.php','_self')</script>"; //refresh the page so we won't have duplicate data in table
+		}
+		
 	}
 ?>
