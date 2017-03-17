@@ -1,7 +1,5 @@
 <!DOCTYPE>
-<html>
-
-<head>
+<html><head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,11 +23,11 @@
     <![endif]-->
     <style>
     img{
-    	width:100%;
-    	}
-    	</style>
+        width:100%;
+        }
+        </style>
 
-</head>
+<style type="text/css"></style></head>
 
 <body>
 
@@ -45,7 +43,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#"></a>
-                <img src = "images/logo.png" style = "width:90px;height:55px;">
+                <img src="images/logo.png" style="width:90px;height:55px;">
                 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -83,82 +81,67 @@
     <div class="container">
 
         <!-- Jumbotron Header -->
-        <header class="jumbotron hero-spacer">
-            <center><h1>Welcome to OFS!</h1></center>
-            <center><p>We offer a wide variety of the best natural and organic foods! </p></center>
-            <img src = "images/slider1.png">
-            <!-- Don't need this button below, so I am commenting it out -->
-            <!--<p><a class="btn btn-primary btn-large">Call to action!</a>-->
-            </p>
+       <header class="jumbotron hero-spacer">
+            <center><h1>Shopping Cart</h1></center>
+
         </header>
 
         <hr>
 
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Latest Items</h3>
-            </div>
-        </div>
-        <!-- /.row -->
+        <table id="cart" class="table table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th style="width:50%">Product</th>
+                            <th style="width:10%">Price</th>
+                            <th style="width:8%">Quantity</th>
+                            <th style="width:22%" class="text-center">Subtotal</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-th="Product">
+                                <div class="row">
+                                    <div class="col-sm-2 hidden-xs"><img src="images/redApple.png" alt="..." class="img-responsive"></div>
+                                    <div class="col-sm-10">
+                                        <h4 class="nomargin">Apple</h4>
+                                        <p>The best apple you ever had, guarenteed or your money back.</p>
+                                    </div>
 
-        <!-- Page Features -->
-        <div class="row text-center">
+                                       <div class="col-sm-2 hidden-xs"><img src="images/corn.png" alt="..." class="img-responsive"></div>
+                                    <div class="col-sm-10">
+                                        <h4 class="nomargin">Corn</h4>
+                                        <p>This corn will make you wanna slap your mother, guaranteed or your money back.</p>
+                                    </div>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Feature Label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Feature Label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                            </td>
+                            <td data-th="Price">$1.99</td>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Feature Label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+                            <td data-th="Quantity">
+                                <input type="number" class="form-control text-center" value="1">
+                            </td>
+                            <td data-th="Subtotal" class="text-center">1.99</td>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Feature Label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-        <!-- /.row -->
+                            
+                        </tr>
+
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr class="visible-xs">
+                            <td class="text-center"><strong>Total 1.99</strong></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                            <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                        </tr>
+                    </tfoot>
+                </table>
 
         <hr>
 
@@ -166,7 +149,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright CS160 &copy; Team 1 2017</p>
+                    <p>Copyright CS160 © Team 1 2017</p>
                 </div>
             </div>
         </footer>
@@ -180,6 +163,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-</body>
 
-</html>
+
+
+</body></html>
