@@ -16,7 +16,7 @@
 
 	<form action="insert_product.php" method="post" enctype=multipart/form-data">
 		<table align="center" width="700" border="2" bgcolor="yellow">
-		
+
 			<tr align="center">
 				<td colspan="8"><h2>Insert New Post Here</h2></td>
 			</tr>
@@ -31,7 +31,7 @@
 					<option>Select a Category</option>
 				<!--display existing categories-->
 				<?php
-				
+
 					$get_cats = "select * from categories";
 					//run this query
 					$run_cats = mysqli_query($con, $get_cats); //2nd field: function that has the query
@@ -42,15 +42,15 @@
 					while($row_cats = mysqli_fetch_array($run_cats)){
 						$cat_id = $row_cats['cat_id']; //get the id from the table
 						$cat_title = $row_cats['cat_title']; // get title from the table
-		
+
 						echo "<option value='$cat_id'>$cat_title</option>"; //need value; pass the cateory ID to this select name 'product_cat'
-	
-	
+
+
 					}
-				
+
 				?>
 				</select>
-				
+
 				</td>
 			</tr>
 			<tr>
@@ -69,11 +69,11 @@
 				<td align="center">Product Keywords:</td>
 				<td><input type="text" name="product_keywords" size="50"/></td>
 			</tr>
-			
+
 			<tr align="center">
 				<td colspan="8"><input type="submit" name="insert_post" value="Insert Now"/></td>
 			</tr>
-		
+
 		</table>
 
 </body>
@@ -89,7 +89,7 @@
 		$product_price = (isset($_POST['product_price']) ? $_POST['product_price'] : null);
 		$product_desc = (isset($_POST['product_desc']) ? $_POST['product_desc'] : null);
 		$product_keywords = (isset($_POST['product_keywords']) ? $_POST['product_keywords'] : null);
-	
+
 		//need an if statement to handle error statement (doesn't matter, but make cleaner)
 		if(isset($_FILES['product_image']) && count($_FILES['product_image']['error']) == 1 && $_FILES['product_image']['error'][0] > 0){
    		 //file not selected
@@ -98,12 +98,12 @@
    			$product_image = $_FILES['product_image']['name'];
 			$product_image_tmp = $_FILES['product_image']['tmp_name'];
 		}
-	
+
 		//get the image from the field; using _FILE, not _POST
 		//$product_image = $_FILES['product_image']['name'];
 		//$product_image_tmp = $_FILES['product_image']['tmp_name'];
 		// ^ tmp (temporary) name AKA default name
-		
+
 		//insert the data into the DB
 		$insert_product = "";
 	}

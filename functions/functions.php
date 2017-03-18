@@ -21,10 +21,10 @@ function getCats(){
 	while($row_cats=mysqli_fetch_array($run_cats)){
 		$cat_id = $row_cats('cat_id'); //get the id from the table
 		$cat_title = $row_cats('cat_title'); // get title from the table
-		
+
 		echo "<li><a href='#'>$cat_title</a></li>";
-	
-	
+
+
 	}
 
 }
@@ -52,10 +52,10 @@ function getProducts(){
 	while($row_cats=mysqli_fetch_array($run_cats)){
 		$cat_id = $row_cats['cat_id']; //get the id from the table
 		$cat_title = $row_cats['cat_title']; // get title from the table
-		
+
 		echo "<li><a href='#'>$cat_title</a></li>";
-	
-	
+
+
 	}
 
 }

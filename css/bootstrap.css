@@ -253,7 +253,11 @@ th {
   }
   .table td,
   .table th {
+<<<<<<< HEAD
     background-color: #000 !important;
+=======
+    background-color: #fff !important;
+>>>>>>> 6aaf5408dc84f5b2f593d03b14de1b0e464f2de1
   }
   .table-bordered th,
   .table-bordered td {
@@ -1087,7 +1091,10 @@ body {
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6aaf5408dc84f5b2f593d03b14de1b0e464f2de1
 }
 input,
 button,
@@ -1277,7 +1284,11 @@ h3,
 }
 h4,
 .h4 {
+<<<<<<< HEAD
   font-size: 25px;
+=======
+  font-size: 18px;
+>>>>>>> 6aaf5408dc84f5b2f593d03b14de1b0e464f2de1
 }
 h5,
 .h5 {
