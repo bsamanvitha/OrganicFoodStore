@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include(functions/functions.php)
+include("functions/functions.php")
 ?>
 
 <html lang="en">
@@ -123,114 +123,10 @@ include(functions/functions.php)
             <div class="col-md-9">
 
                 <!-- Title -->
-                     <div class="row">
-                           <div class="col-sm-4 col-lg-4 col-md-4">
-                         </div>
-                     </div>
-                      <center><h3>Fruits</h3></center>
-                      <br></br>
-                      <div class="row">
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="images/redApple.png" style = "width:180px;height:190px;">
-                                  <div class="caption">
-                                      <h4><center><a href="#">Apples</a></center></h4>
-                                      <p><center>$0.25 /each</center></p>
-                                      <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                                  </div>
-                              </div>
-                          </div>
+                  <div class="row">
 
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                             <img src="images/orange.png" style = "width:180px;height:190px;">
-                             <div class="caption">
-                                 <h4><center><a href="#">Oranges</a></center></h4>
-                                 <p><center>$0.30 /each</center></p>
-                                 <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                             </div>
-                         </div>
-                     </div>
-
-                      <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/pear.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                  <h4><center><a href="#">Pears</a></center></h4>
-                                  <p><center>$0.55 /each</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/banana.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Banana</a></center></h4>
-                                   <p><center>$0.75 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/grapes.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Grapes</a></center></h4>
-                                   <p><center>$0.80 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/strawberries.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Strawberries</a></center></h4>
-                                   <p><center>$1.20 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/peaches.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Peaches</a></center></h4>
-                                   <p><center>$0.40 /each</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/mango.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Mangoes</a></center></h4>
-                                   <p><center>$0.75 each</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/blueberries.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Blueberries</a></center></h4>
-                                   <p><center>$0.40 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
+                    <?php getFruits(); ?>
+                           
                 </div>
 
             </div>
