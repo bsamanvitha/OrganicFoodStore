@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2017 at 12:24 PM
+-- Generation Time: Mar 23, 2017 at 10:05 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -62,6 +62,26 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`product_id`, `product_title`, `product_image`, `product_desc`, `product_cat`, `product_price`, `product_keywords`) VALUES
+(1, 'Lettuce', 'lettuce.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 1, 'vegetable'),
+(2, 'Onions', 'onions.png', '', 1, 2, 'onions'),
+(3, 'Broccoli', 'broccoli.png', '', 1, 2, 'broccoli'),
+(4, 'Mushrooms', 'mushroom.png', '', 1, 3, 'mushroom'),
+(5, 'Carrots', 'carrot.png', '', 1, 3, 'carrots'),
+(6, 'Red Bellpeppers', 'bellpepper.png', '', 1, 3, 'bellpepper'),
+(7, 'Celery', 'celery.png', '', 1, 3, 'celery'),
+(8, 'Corn', 'corn.png', '', 1, 4, 'corn'),
+(9, 'Cucumbers', 'cucumber.png', '', 1, 3, 'cucumber'),
+(10, 'Apples', 'redApple.png', '', 2, 2, 'apple'),
+(11, 'Oranges', 'orange.png', '', 2, 4, 'orange'),
+(12, 'Pears', 'pear.png', '', 2, 3, 'pear'),
+(13, 'Banana', 'banana.png', '', 2, 3, 'banana'),
+(14, 'Grapes', 'grapes.png', '', 2, 3, 'grapes');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -90,7 +110,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT;--
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;--
 -- Database: `phpmyadmin`
 --
 CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
@@ -239,7 +259,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"ofsdb\",\"table\":\"products\"},{\"db\":\"ofsdb\",\"table\":\"categories\"},{\"db\":\"OFS\",\"table\":\"categories\"},{\"db\":\"OFS\",\"table\":\"products\"}]');
+('root', '[{\"db\":\"ofsdb\",\"table\":\"categories\"},{\"db\":\"ofsdb\",\"table\":\"products\"}]');
 
 -- --------------------------------------------------------
 
@@ -310,6 +330,13 @@ CREATE TABLE `pma__table_uiprefs` (
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
 
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'ofsdb', 'products', '{\"sorted_col\":\"`products`.`product_cat`  DESC\"}', '2017-03-23 20:41:09');
+
 -- --------------------------------------------------------
 
 --
@@ -346,7 +373,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2017-03-09 21:17:36', '{\"collation_connection\":\"utf8mb4_unicode_ci\"}');
+('root', '2017-03-22 22:10:26', '{\"collation_connection\":\"utf8mb4_unicode_ci\"}');
 
 -- --------------------------------------------------------
 
