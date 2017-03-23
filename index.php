@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-
-<?php
-include("functions/functions.php")
-?>
-
 <html lang="en">
 
 <head>
@@ -108,18 +103,12 @@ include("functions/functions.php")
                 <p><center><img src = "images/logo.png" style = "width:200px;height:100px;"></center></p>
                 <center><p class="lead">Products</p></center>
                 <div class="list-group">
-
-                    <?php getCats(); ?>
-
-                    <!--
                     <a href="fruits.html" class="list-group-item">Fruits</a>
                     <a href="vegetables.html" class="list-group-item">Vegetables</a>
                     <a href="dairy.html" class="list-group-item">Dairy</a>
                     <a href="nutsAndSeeds.html" class="list-group-item">Nuts and Seeds</a>
                     <a href="meats.html" class="list-group-item">Meats</a>
                     <a href="snacks.html" class="list-group-item">Snacks</a>
-                  -->
-
                 </div>
             </div>
 
@@ -163,12 +152,7 @@ include("functions/functions.php")
                          </div>
                      </div>
 
-                     
-
                       <div class="row">
-                        <?php getRandomProducts(); ?>
-
-                        <!--
                           <div class="col-sm-4 col-lg-4 col-md-4">
                               <div class="thumbnail">
                                   <img src="images/redApple.png" style = "width:180px;height:190px;">
@@ -237,7 +221,8 @@ include("functions/functions.php")
                            </div>
                        </div>
 
-                     -->
+
+
 
                 </div>
 
