@@ -124,7 +124,7 @@ include("functions/functions.php")
                 <!-- Title -->
                 <div class="row">
                           
-                   <?php getProducts(); ?>    
+                   <?php getVegetables(); ?>    
 
                 </div>
 

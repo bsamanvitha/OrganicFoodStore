@@ -166,7 +166,7 @@ include("functions/functions.php")
                      
 
                       <div class="row">
-                        <?php getProducts(); ?>
+                        <?php getRandomProducts(); ?>
 
                         <!--
                           <div class="col-sm-4 col-lg-4 col-md-4">
