@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include("functions/functions.php")
+?>
 <html lang="en">
 
 <head>
@@ -119,114 +122,10 @@
             <div class="col-md-9">
 
                 <!-- Title -->
-                     <div class="row">
-                           <div class="col-sm-4 col-lg-4 col-md-4">
-                         </div>
-                     </div>
-                      <center><h3>Vegetables</h3></center>
-                      <br></br>
-                      <div class="row">
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="images/lettuce.png" style = "width:180px;height:190px;">
-                                  <div class="caption">
-                                      <h4><center><a href="#">Lettuce</a></center></h4>
-                                      <p><center>$0.25 /lb</center></p>
-                                      <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                                  </div>
-                              </div>
-                          </div>
+                <div class="row">
+                          
+                   <?php getProducts(); ?>    
 
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                             <img src="images/onions.png" style = "width:180px;height:190px;">
-                             <div class="caption">
-                                 <h4><center><a href="#">Onions</a></center></h4>
-                                 <p><center>$0.30 /each</center></p>
-                                 <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                             </div>
-                         </div>
-                     </div>
-
-                      <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/broccoli.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                  <h4><center><a href="#">Broccoli</a></center></h4>
-                                  <p><center>$0.55 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/mushroom.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Mushrooms</a></center></h4>
-                                   <p><center>$0.75 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/carrot.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Carrots</a></center></h4>
-                                   <p><center>$0.80 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/bellpepper.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Red Bellpeppers</a></center></h4>
-                                   <p><center>$1.20 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/celery.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Celery</a></center></h4>
-                                   <p><center>$0.40 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/corn.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Corn</a></center></h4>
-                                   <p><center>$0.75 each</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/cucumber.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Cumcumbers</a></center></h4>
-                                   <p><center>$0.40 /each</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
                 </div>
 
             </div>
