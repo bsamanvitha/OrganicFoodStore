@@ -41,14 +41,27 @@ function getProducts(){
 	//we are saving the data to the local variable row_cats
 	while($row_products=mysqli_fetch_array($run_products)){
 		$product_id = $row_products['product_id']; //get the id from the table
-		$product_title = $row_cats['product_title']; // get title from the table
+		$product_title = $row_products['product_title']; // get title from the table
 		$product_image = $row_products['product_image'];
 		$product_desc = $row_products['product_desc'];
 		$product_cat = $row_products['product_cat'];
 		$product_price = $row_products['product_price'];
 		$product_keywords = $row_products['product_keywords'];
 		
-		echo "<a href='#'>$product_title</a>";
+		echo "
+			<div class='col-sm-4 col-lg-4 col-md-4'>
+                              <div class='thumbnail'>
+                                  <img src='images/$product_image' style = 'width:180px;height:190px;''>
+                                  <div class='caption'>
+                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <p><center>$$product_price</center></p>
+                                      <p><center><a href='#'' class='btn btn-primary'>Add to Cart</a></center></p>
+                                  </div>
+                              </div>
+                          </div>
+
+
+		";
 	
 	
 	}

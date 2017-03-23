@@ -163,7 +163,12 @@ include("functions/functions.php")
                          </div>
                      </div>
 
+                     
+
                       <div class="row">
+                        <?php getProducts(); ?>
+
+                        <!--
                           <div class="col-sm-4 col-lg-4 col-md-4">
                               <div class="thumbnail">
                                   <img src="images/redApple.png" style = "width:180px;height:190px;">
@@ -232,8 +237,7 @@ include("functions/functions.php")
                            </div>
                        </div>
 
-
-
+                     -->
 
                 </div>
 
