@@ -22,7 +22,10 @@ function getCats(){
 		$cat_id = $row_cats['cat_id']; //get the id from the table
 		$cat_title = $row_cats['cat_title']; // get title from the table
 		
-		echo "<li><a href='$cat_title.php'>$cat_title</a></li>";
+		echo 
+		"<div class='list-group'>
+			<a href='$cat_title.php' class='list-group-item'>$cat_title</a>
+		</div>";
 	}
 }
 

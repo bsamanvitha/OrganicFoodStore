@@ -107,21 +107,21 @@ include("functions/functions.php")
             <div class="col-md-3">
                 <p><center><img src = "images/logo.png" style = "width:200px;height:100px;"></center></p>
                 <center><p class="lead">Products</p></center>
+                <?php getCats(); ?>
+
+                <!--
                 <div class="list-group">
-
                     <?php getCats(); ?>
-
-                    <!--
                     <a href="fruits.html" class="list-group-item">Fruits</a>
                     <a href="vegetables.html" class="list-group-item">Vegetables</a>
                     <a href="dairy.html" class="list-group-item">Dairy</a>
                     <a href="nutsAndSeeds.html" class="list-group-item">Nuts and Seeds</a>
                     <a href="meats.html" class="list-group-item">Meats</a>
                     <a href="snacks.html" class="list-group-item">Snacks</a>
-                  -->
-
                 </div>
+              -->
             </div>
+          
 
             <div class="col-md-9">
 
