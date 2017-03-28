@@ -132,7 +132,7 @@ include("functions/functions.php")
                       <br></br>
                       <div class="row">
                           
-                        <?php getDairy() ?>
+                        <?php getDairy(); ?>
                       
                 </div>
 
