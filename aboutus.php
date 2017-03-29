@@ -117,7 +117,7 @@
        <section id="statements" class="clear">
          <div class="one_half first">
            <h1>About Us</h1>
-           <img class="imgl" src="images/demo/125x125.gif" alt="">
+           <img class="imgl" src="images/demo/family_guy.png"  alt="">
            <blockquote>
              <h2>Welcome to Team 1's Official Organic Food Store website!</h2>
              <h2> Our online store sells the freshest organic products locally that can be delivered to you around the Bay Area!
@@ -142,7 +142,7 @@
        <section id="team">
          <ul class="clear">
            <li class="one_quarter first">
-             <figure><img src="images/demo/team-member.gif" alt="">
+             <figure><img src="images/demo/dad.png" alt="">
                <figcaption>
                  <p class="team_name">Name Goes Here</p>
                  <p class="team_title">Job Title Here</p>
@@ -158,7 +158,7 @@
              </ul>
            </li>
            <li class="one_quarter">
-             <figure><img src="images/demo/team-member.gif" alt="">
+             <figure><img src="images/demo/dad2.png" alt="">
                <figcaption>
                  <p class="team_name">Name Goes Here</p>
                  <p class="team_title">Job Title Here</p>
@@ -174,7 +174,7 @@
              </ul>
            </li>
            <li class="one_quarter">
-             <figure><img src="images/demo/team-member.gif" alt="">
+             <figure><img src="images/demo/mom2.png" alt="">
                <figcaption>
                  <p class="team_name">Name Goes Here</p>
                  <p class="team_title">Job Title Here</p>
@@ -190,7 +190,23 @@
              </ul>
            </li>
            <li class="one_quarter">
-             <figure><img src="images/demo/team-member.gif" alt="">
+             <figure><img src="images/demo/mum.png" alt="">
+               <figcaption>
+                 <p class="team_name">Name Goes Here</p>
+                 <p class="team_title">Job Title Here</p>
+                 <p class="team_description">Vestassapede et donec ut est liberos sus et eget sed eget. Quisqueta habitur augue magnisl magna phas ellus sagit titor ant curabi turpis.</p>
+               </figcaption>
+             </figure>
+             <ul>
+               <li><a href="#"><img src="images/demo/social-icon.png" alt=""></a></li>
+               <li><a href="#"><img src="images/demo/social-icon.png" alt=""></a></li>
+               <li><a href="#"><img src="images/demo/social-icon.png" alt=""></a></li>
+               <li><a href="#"><img src="images/demo/social-icon.png" alt=""></a></li>
+               <li><a href="#"><img src="images/demo/social-icon.png" alt=""></a></li>
+             </ul>
+           </li>
+           <li class="one_quarter">
+             <figure><img src="images/demo/dogg.png" alt="">
                <figcaption>
                  <p class="team_name">Name Goes Here</p>
                  <p class="team_title">Job Title Here</p>
