@@ -3,11 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2017 at 03:09 AM
+-- Generation Time: Apr 03, 2017 at 02:47 AM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- PHP Version: 5.6.30
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -26,9 +25,37 @@ USE `ofsdb`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cart`
+--
+-- Creation: Mar 23, 2017 at 10:23 PM
+--
+
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE IF NOT EXISTS `cart` (
+  `p_id` int(10) NOT NULL,
+  `ip_add` varchar(255) NOT NULL,
+  `qty` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `cart`:
+--
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`p_id`, `ip_add`, `qty`) VALUES
+(26, '::1', 2),
+(34, '::1', 0),
+(28, '::1', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
--- Creation: Mar 22, 2017 at 10:10 PM
+-- Creation: Mar 29, 2017 at 03:21 AM
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -57,7 +84,7 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Table structure for table `products`
 --
--- Creation: Mar 22, 2017 at 10:10 PM
+-- Creation: Mar 29, 2017 at 03:21 AM
 --
 
 DROP TABLE IF EXISTS `products`;
@@ -117,7 +144,6 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_image`, `product
 (34, 'Dark Chocolate Almonds', 'chocoalmonds.png', '', 6, 8, 'almonds'),
 (35, 'Apple Chips', 'applechips.png', '', 6, 8, 'apple chips'),
 (36, 'Fruit Snacks', 'fruitsnacks.png', '', 6, 10, 'snacks');
-SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

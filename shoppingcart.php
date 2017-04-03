@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+
+<?php
+
+session_start();
+
+include("functions/functions.php")
+?>
+
 <html lang="en">
 
 <head>
@@ -9,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shopping Cart</title>
+    <title>OFS HomePage</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,11 +33,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-
 </head>
 
-<!--This is css for the search bar-->
+<!--This is for the search bar and shopping cart-->
 <style>
 #box{
   border-color: white;
@@ -41,13 +47,7 @@
   width:30px;
   height:28px;
 }
-
-img{
-    width:100%;
-    }
 </style>
-
-<style type="text/css"></style></head>
 
 
 <body>
@@ -70,14 +70,15 @@ img{
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                 	<li>
-                        <a href="index.html">Home</a>
+
+                  <li>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="signIn.html">Sign in</a>
+                        <a href="?????">Sign in</a>
                     </li>
                     <li>
-                        <a href="aboutUs.html">About Us</a>
+                        <a href="aboutus.php">About Us</a>
                     </li>
                     <li>
                         <a href="contact/contact.html">Contact Us</a>
@@ -92,87 +93,213 @@ img{
                     </li>
 
                     <li>
-                          <a href="shoppingcart.html">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                          <a href="shoppingcart.php">Cart <span class="glyphicon glyphicon-shopping-cart"> <?php total_items(); ?> 
+
+                          Price: <?php total_price();  ?>
+
+  
+                          </span></a>
+
+                     
 
                   </li>
-
-
-
                 </ul>
 
             <!-- /.navbar-collapse -->
         </div>
+
+
+
         <!-- /.container -->
     </nav>
+
     <!-- Page Content -->
-       <div class="container">
+    <div class="container">
 
-           <!-- Jumbotron Header -->
-          <header class="jumbotron hero-spacer">
-            <center><img src = "images/logo.png" style = "width:150px;height:80px;"></center>
-               <center><h1>Shopping Cart</h1></center>
+      <?php cart(); ?>
 
+        <div class="row">
 
-           </header>
+            <div class="col-md-3">
+                <p><center><img src = "images/logo.png" style = "width:200px;height:100px;"></center></p>
+                <center><p class="lead">Products</p></center>
+                <?php getCats(); ?>
 
-           <hr>
+                <!--
+                <div class="list-group">
+                    <?php getCats(); ?>
+                    <a href="fruits.html" class="list-group-item">Fruits</a>
+                    <a href="vegetables.html" class="list-group-item">Vegetables</a>
+                    <a href="dairy.html" class="list-group-item">Dairy</a>
+                    <a href="nutsAndSeeds.html" class="list-group-item">Nuts and Seeds</a>
+                    <a href="meats.html" class="list-group-item">Meats</a>
+                    <a href="snacks.html" class="list-group-item">Snacks</a>
+                </div>
+              -->
+            </div>
+  
+                <!-- Title -->
+                     <div class="row">
 
-           <table id="cart" class="table table-hover table-condensed">
-                       <thead>
-                           <tr>
-                               <th style="width:50%">Product</th>
-                               <th style="width:10%">Price</th>
-                               <th style="width:8%">Quantity</th>
-                               <th style="width:22%" class="text-center">Subtotal</th>
-                               <th style="width:10%"></th>
-                           </tr>
-                       </thead>
-                       <tbody>
-                           <tr>
-                               <td data-th="Product">
-                                   <div class="row">
-                                       <div class="col-sm-2 hidden-xs"><img src="images/redApple.png" alt="..." class="img-responsive"></div>
-                                       <div class="col-sm-10">
-                                           <h4 class="nomargin">Apple</h4>
-                                           <p>The best apple you ever had, guarenteed or your money back.</p>
-                                       </div>
+                      <br>
 
-                                          <div class="col-sm-2 hidden-xs"><img src="images/corn.png" alt="..." class="img-responsive"></div>
-                                       <div class="col-sm-10">
-                                           <h4 class="nomargin">Corn</h4>
-                                           <p>This corn will make you wanna slap your mother, guaranteed or your money back.</p>
-                                       </div>
+                      <form action ="" method="post" enctype="multipart/form-data">
+
+                        <table align ="center" width="700" bgcolor="skyblue">
+
+                           
 
 
-                                   </div>
-                               </td>
-                               <td data-th="Price">$1.99</td>
+                              <tr align = "center">
+                                <th>Remove</th>
+                                <th>Product (S)</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                              </tr>
 
-                               <td data-th="Quantity">
-                                   <input type="number" class="form-control text-center" value="1">
-                               </td>
-                               <td data-th="Subtotal" class="text-center">1.99</td>
+                              <?php
+
+                              $total = 0;
+
+                      global $con;
+
+                      $ip = getIp();
+
+                      $sel_price = "select * from cart where ip_add='$ip'";
+
+                      $run_price = mysqli_query($con, $sel_price);
+
+                      while($p_price=mysqli_fetch_array($run_price)){
+
+                        $product_id = $p_price['p_id'];
+
+                        $product_price = "select * from products where product_id='$product_id'";
+
+                        
+                        $run_product_price = mysqli_query($con, $product_price);
+
+                        while($pp_price = mysqli_fetch_array($run_product_price)){
+
+                          $product_price = array($pp_price['product_price']);
+
+                          $product_title = $pp_price['product_title'];
+
+                          $product_image = $pp_price['product_image'];
+
+                          $single_price =  $pp_price['product_price'];
+
+                          $values = array_sum($product_price);
+
+                          $total += $values;
+
+
+                              ?>
+
+                              <tr align="center">
+
+                                  <td><input type="checkbox" name ="remove[]" value="<?php echo $product_id;?>"/></td>
+                                   <td><?php echo $product_title; ?><br>
+                                    <img src="images/<?php echo $product_image;?>" width="60" height="60"/>
+                                    </td>
+                                    <td><input type="text" size="10" name="qty" value="<?php echo $_SESSION['qty'];?>"/></td>
+                                     <td><?php echo "$" . $single_price; ?></td>
+
+                                     <?php 
+
+                                     if(isset($_POST['update_cart'])){
+
+                                      $qty = $_POST['qty'];
+
+                                      $update_qty = "update cart set qty='$qty'";
+
+                                      $run_qty = mysqli_query($con, $update_qty);
+
+                                      $_SESSION['qty']=$qty; 
+
+                                      $total = $total* $qty;
+
+                                     }
+
+                                     ?>
 
 
 
-                           </tr>
+                              </tr> 
 
 
-                       </tbody>
-                       <tfoot>
-                           <tr class="visible-xs">
-                               <td class="text-center"><strong>Total 1.99</strong></td>
-                           </tr>
-                           <tr>
-                               <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                               <td colspan="2" class="hidden-xs"></td>
-                               <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-                               <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-                           </tr>
-                       </tfoot>
-                   </table>
 
-           <hr>
+
+                              <?php } } ?>
+
+                              <tr >
+    <td colspan ="4" align="right"><b>Sub Total: &nbsp; </b></td>
+    <td colspan ="4"><?php echo "$" . $total;?></td>
+
+</tr>
+
+
+        <tr align ="center">
+
+          <td colspan ="2"><input type="submit" name="update_cart" value="Update Cart"/> </td>
+          <td><input type="submit" name="continue" value="Continue Shopping"/></td>
+          <td><button>Checkout<a href="checkout.php" style = "text-decoration: none; color= black;"></button></a></td>
+
+        </tr>
+
+                          </table>
+
+                       </form>
+                           
+<?php
+
+function updatecart(){
+
+  global $con;
+
+  $ip = getIp();
+
+  if(isset($_POST['update_cart'])){
+
+
+    foreach($_POST['remove'] as $remove_id){
+
+      $delete_product = "delete from cart where p_id='$remove_id' AND ip_add='$ip'";
+
+      $run_delete = mysqli_query($con, $delete_product);
+
+      if($run_delete){
+
+        echo "<script>window.open('shoppingcart.php','_self')</script>";
+
+      }
+
+    }
+
+  }
+
+if(isset($_POST['continue'])){
+
+echo "<script>window.open('index.php','_self')</script>";
+
+}
+
+}
+?>
+
+                     
+
+                      <div class="row">
+                       
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 
 
     <!-- /.container -->

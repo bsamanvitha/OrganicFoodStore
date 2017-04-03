@@ -90,17 +90,30 @@ include("functions/functions.php")
                     </li>
 
                     <li>
-                          <a href="shoppingcart.php">Cart <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                          <a href="shoppingcart.php">Cart <span class="glyphicon glyphicon-shopping-cart"> <?php total_items(); ?> 
+
+                          Price: <?php total_price();  ?>
+
+ 
+                          </span></a>
+
+                     
+
                   </li>
                 </ul>
 
             <!-- /.navbar-collapse -->
         </div>
+
+
+
         <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
     <div class="container">
+
+      <?php cart(); ?>
 
         <div class="row">
 
@@ -175,7 +188,7 @@ include("functions/functions.php")
                                   <div class="caption">
                                       <h4><center><a href="#">Red Apples</a></center></h4>
                                       <p><center>$0.15 /each</center></p>
-                                      <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
+                                      <p><center><a href='index.php?add_cart=$product_id' class="btn btn-primary">Add to Cart</a></center></p>
                                   </div>
                               </div>
                           </div>
