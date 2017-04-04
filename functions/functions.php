@@ -135,6 +135,12 @@ function cart(){
 	//will retrieve all of the records from the table
 	//we are fetching this query run_cats using mysqli_fetch_array
 	//we are saving the data to the local variable row_cats
+
+	echo 
+		"<div class='list-group'>
+			<a href='all.php' class='list-group-item'>All Products</a>
+		</div>";
+
 	while($row_cats=mysqli_fetch_array($run_cats)){
 		$cat_id = $row_cats['cat_id']; //get the id from the table
 		$cat_title = $row_cats['cat_title']; // get title from the table
@@ -377,7 +383,7 @@ function getAllProducts(){
 
 	//local variable always created w/ the $ sign
 	//written an sql query
-	$get_products = "select * from products";
+	$get_products = "select * from products order by product_title";
 	//run this query
 	$run_products = mysqli_query($con, $get_products); //2nd field: function that has the query
 
