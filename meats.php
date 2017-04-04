@@ -72,10 +72,10 @@ include("functions/functions.php")
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="signIn.html">Sign in</a>
+                        <a href="signIn.php">Sign in</a>
                     </li>
                     <li>
-                        <a href="aboutUs.html">About Us</a>
+                        <a href="aboutus.php">About Us</a>
                     </li>
                     <li>
                         <a href="contact/contact.html">Contact Us</a>

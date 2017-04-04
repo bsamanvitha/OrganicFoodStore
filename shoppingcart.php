@@ -75,7 +75,7 @@ include("functions/functions.php")
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="?????">Sign in</a>
+                        <a href="signIn.php">Sign in</a>
                     </li>
                     <li>
                         <a href="aboutus.php">About Us</a>
@@ -93,11 +93,11 @@ include("functions/functions.php")
                     </li>
 
                     <li>
-                          <a href="shoppingcart.php">Cart <span class="glyphicon glyphicon-shopping-cart"> <?php total_items(); ?> 
+                          <a href="shoppingcart.php">Cart <span class="glyphicon glyphicon-shopping-cart"> <?php total_items(); ?>
 
                           Price: <?php total_price();  ?>
 
-  
+
                           </span></a>
 
                      
@@ -137,7 +137,7 @@ include("functions/functions.php")
                 </div>
               -->
             </div>
-  
+
                 <!-- Title -->
                      <div class="row">
 
@@ -147,7 +147,7 @@ include("functions/functions.php")
 
                         <table align ="center" width="700" bgcolor="skyblue">
 
-                           
+
 
 
                               <tr align = "center">
@@ -175,7 +175,7 @@ include("functions/functions.php")
 
                         $product_price = "select * from products where product_id='$product_id'";
 
-                        
+
                         $run_product_price = mysqli_query($con, $product_price);
 
                         while($pp_price = mysqli_fetch_array($run_product_price)){
@@ -204,7 +204,7 @@ include("functions/functions.php")
                                     <td><input type="text" size="10" name="qty" value="<?php echo $_SESSION['qty'];?>"/></td>
                                      <td><?php echo "$" . $single_price; ?></td>
 
-                                     <?php 
+                                     <?php
 
                                      if(isset($_POST['update_cart'])){
 
@@ -214,7 +214,7 @@ include("functions/functions.php")
 
                                       $run_qty = mysqli_query($con, $update_qty);
 
-                                      $_SESSION['qty']=$qty; 
+                                      $_SESSION['qty']=$qty;
 
                                       $total = $total* $qty;
 
@@ -224,7 +224,7 @@ include("functions/functions.php")
 
 
 
-                              </tr> 
+                              </tr>
 
 
 
@@ -249,7 +249,7 @@ include("functions/functions.php")
                           </table>
 
                        </form>
-                           
+
 <?php
 
 function updatecart(){
@@ -286,10 +286,10 @@ echo "<script>window.open('index.php','_self')</script>";
 }
 ?>
 
-                     
+
 
                       <div class="row">
-                       
+
 
                 </div>
 

@@ -136,109 +136,51 @@ include("functions/functions.php")
             </div>
 
 
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="images/slideImage1.png" style = "width:900px;height:500px">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="images/slideImage2.png" style = "width:900px;height:500px">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="images/slideImage3.png" style = "width:900px;height:500px">
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
 
                 <!-- Title -->
-                     <div class="row">
-                           <div class="col-sm-4 col-lg-4 col-md-4">
-                             <h3>Featured Items</h3>
+                <div class="row">
+                       <?php
+                       if(isset($_GET['product_id'])){
+                         $product_id = $_GET['product_id'];
+
+                       $get_products = "select * from products where product_id='$product_id'";
+                       //run this query
+                       $run_products = mysqli_query($con, $get_products); //2nd field: function that has the query
+
+                       //will retrieve all of the records from the table
+                       //we are fetching this query run_cats using mysqli_fetch_array
+                       //we are saving the data to the local variable row_cats
+                       while($row_products=mysqli_fetch_array($run_products)){
+                         $product_id = $row_products['product_id']; //get the id from the table
+                         $product_title = $row_products['product_title']; // get title from the table
+                         $product_image = $row_products['product_image'];
+                         $product_desc = $row_products['product_desc'];
+                         $product_cat = $row_products['product_cat'];
+                         $product_price = $row_products['product_price'];
+                         $product_keywords = $row_products['product_keywords'];
+
+                         echo "
+                           <div class='col-sm-5 col-lg-5 col-md-5'>
+                                                   <div class='thumbnail'>
+                                                       <img src='images/$product_image' style = 'width:180px;height:190px;''>
+                                                       <div class='caption'>
+                                                           <h4><center>$product_title</a></center></h4>
+                                                           <p><center>$$product_price</center></p>
+                                                           <p><center>$product_desc</center></p>
+                                                           <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
+                                                       </div>
+                                                   </div>
+                                               </div>
+
+                         ";
+                       }
+                     }
+                      ?>
+
                          </div>
                      </div>
-
-
-
-                      <div class="row">
-                        <?php getRandomProducts(); ?>
 
                         <!--
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="images/redApple.png" style = "width:180px;height:190px;">
-                                  <div class="caption">
-                                      <h4><center><a href="#">Red Apples</a></center></h4>
-                                      <p><center>$0.15 /each</center></p>
-                                      <p><center><a href='index.php?add_cart=$product_id' class="btn btn-primary">Add to Cart</a></center></p>
-                                  </div>
-                              </div>
-                          </div>
-
-
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                             <img src="images/orange.png" style = "width:180px;height:190px;">
-                             <div class="caption">
-                                 <h4><center><a href="#">Oranges</a></center></h4>
-                                 <p><center>$0.20 /each</center></p>
-                                 <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                             </div>
-                         </div>
-                     </div>
-
-                      <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/corn.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                  <h4><center><a href="#">Corn</a></center></h4>
-                                  <p><center>$0.15 /each</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/tomato.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Tomatoes</a></center></h4>
-                                   <p><center>$0.15 /each</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
-
-                       <div class="col-sm-4 col-lg-4 col-md-4">
-                           <div class="thumbnail">
-                               <img src="images/grapes.png" style = "width:180px;height:190px;">
-                               <div class="caption">
-                                   <h4><center><a href="#">Grapes</a></center></h4>
-                                   <p><center>$0.30 /lb</center></p>
-                                   <p><center><a href="#" class="btn btn-primary">Add to Cart</a></center></p>
-                               </div>
-                           </div>
-                       </div>
-
                        <div class="col-sm-4 col-lg-4 col-md-4">
                            <div class="thumbnail">
                                <img src="images/pistachios.png" style = "width:180px;height:190px;">

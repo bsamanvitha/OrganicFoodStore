@@ -8,15 +8,15 @@ $con = mysqli_connect("localhost", "root", "", "ofsdb"); //db name is 4th field
 
 function getIp() {
     $ip = $_SERVER['REMOTE_ADDR'];
- 
+
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
     }
- 
+
     return $ip;
-} 
+}
 
 
 function cart(){
@@ -29,7 +29,7 @@ function cart(){
 
 		$product_id  =   $_GET['add_cart'];
 
-		$check_product = "select * form cart where ip_add='$ip' AND p_id='$product_id'"; 
+		$check_product = "select * form cart where ip_add='$ip' AND p_id='$product_id'";
 
 		$run_check =  mysqli_query($con, $check_product);
 
@@ -83,7 +83,7 @@ function cart(){
 			}
 			echo $count_items;
 		}
-	
+
 //getting the total price of item in the cart
 
 		function total_price(){
@@ -136,7 +136,7 @@ function cart(){
 	//we are fetching this query run_cats using mysqli_fetch_array
 	//we are saving the data to the local variable row_cats
 
-	echo 
+	echo
 		"<div class='list-group'>
 			<a href='all.php' class='list-group-item'>All Products</a>
 		</div>";
@@ -144,8 +144,8 @@ function cart(){
 	while($row_cats=mysqli_fetch_array($run_cats)){
 		$cat_id = $row_cats['cat_id']; //get the id from the table
 		$cat_title = $row_cats['cat_title']; // get title from the table
-		
-		echo 
+
+		echo
 		"<div class='list-group'>
 			<a href='$cat_title.php' class='list-group-item'>$cat_title</a>
 		</div>";
@@ -178,7 +178,7 @@ function getVegetables(){
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>
@@ -216,7 +216,7 @@ function getFruits(){
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>
@@ -254,7 +254,7 @@ function getDairy(){
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>
@@ -291,7 +291,7 @@ function getNutsAndSeeds(){
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>
@@ -329,7 +329,7 @@ function getMeats(){
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>
@@ -366,7 +366,7 @@ function getSnacks(){
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>
@@ -398,13 +398,13 @@ function getAllProducts(){
 		$product_cat = $row_products['product_cat'];
 		$product_price = $row_products['product_price'];
 		$product_keywords = $row_products['product_keywords'];
-		
+
 		echo "
 			<div class='col-sm-4 col-lg-4 col-md-4'>
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>
@@ -438,13 +438,13 @@ function getRandomProducts(){
 		$product_cat = $row_products['product_cat'];
 		$product_price = $row_products['product_price'];
 		$product_keywords = $row_products['product_keywords'];
-		
+
 		echo "
 			<div class='col-sm-4 col-lg-4 col-md-4'>
                               <div class='thumbnail'>
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
-                                      <h4><center><a href='#'>$product_title</a></center></h4>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
                                        <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
                                   </div>

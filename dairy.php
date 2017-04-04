@@ -70,7 +70,7 @@ include("functions/functions.php")
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="?????">Sign in</a>
+                        <a href="signIn.php">Sign in</a>
                     </li>
                     <li>
                         <a href="aboutus.php">About Us</a>
@@ -122,9 +122,9 @@ include("functions/functions.php")
                       <center><h3>Diary</h3></center>
                       <br></br>
                       <div class="row">
-                          
+
                         <?php getDairy(); ?>
-                      
+
                 </div>
 
             </div>
