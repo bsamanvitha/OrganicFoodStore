@@ -174,8 +174,8 @@ function getVegetables(){
                                   <div class='caption'>
                                       <h4><center><a href='#'>$product_title</a></center></h4>
                                       <p><center>$$product_price</center></p>
-                                      <a href='index.php'><button style='float:right'>Add to Cart</button></a>
                                       <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
+                                  </div>
                               </div>
                           </div>
 
