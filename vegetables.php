@@ -102,7 +102,7 @@ include("functions/functions.php")
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+     <div class="container">
 
         <div class="row">
 
@@ -115,10 +115,16 @@ include("functions/functions.php")
             <div class="col-md-9">
 
                 <!-- Title -->
-                <div class="row">
+                     <div class="row">
+                           <div class="col-sm-4 col-lg-4 col-md-4">
+                         </div>
+                     </div>
+                      <center><h3>Vegetables</h3></center>
+                      <br></br>
+                      <div class="row">
                           
-                   <?php getVegetables(); ?>    
 
+                          <?php getVegetables(); ?>
                 </div>
 
             </div>
