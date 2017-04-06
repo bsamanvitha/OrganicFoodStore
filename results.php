@@ -67,11 +67,11 @@ include("functions/functions.php")
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                    <li>
+                  <li>
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="signIn.php">Sign in</a>
+                        <a href="?????">Sign in</a>
                     </li>
                     <li>
                         <a href="aboutus.php">About Us</a>
@@ -86,7 +86,6 @@ include("functions/functions.php")
             <input type="text" name="user_query" placeholder="Search a product" / >
             <input type="submit" name="search" value="Search"/>
         </form>
-                    </li>
                     </li>
 
                     <li>
@@ -121,12 +120,56 @@ include("functions/functions.php")
                            <div class="col-sm-4 col-lg-4 col-md-4">
                          </div>
                      </div>
-                      <center><h3>Snacks</h3></center>
+                      <center><h3>All Products</h3></center>
                       <br></br>
                       <div class="row">
 
+                      <?
+                      //local variable always created w/ the $ sign
+                      //written an sql query
+                      //if search then create new var $search_query from user_query
+                      if(isset($_GET['search'])){
+                        $search_query = $_GET['user_query'];
 
-                          <?php getSnacks(); ?>
+  //get products that match with product_keywords from the product and the inputted search word in the search button 
+  $get_products = "select * from products where product_keywords like '%$search_query%'";
+
+                       
+  //run this query
+  $run_products = mysqli_query($con, $get_products); //2nd field: function that has the query
+
+  //will retrieve all of the records from the table
+  //we are fetching this query run_cats using mysqli_fetch_array
+  //we are saving the data to the local variable row_cats
+  while($row_products=mysqli_fetch_array($run_products)){
+    $product_id = $row_products['product_id']; //get the id from the table
+    $product_title = $row_products['product_title']; // get title from the table
+    $product_image = $row_products['product_image'];
+    $product_desc = $row_products['product_desc'];
+    $product_cat = $row_products['product_cat'];
+    $product_price = $row_products['product_price'];
+    $product_keywords = $row_products['product_keywords'];
+
+    echo "
+      <div class='col-sm-4 col-lg-4 col-md-4'>
+                              <div class='thumbnail'>
+                                  <img src='images/$product_image' style = 'width:180px;height:190px;''>
+                                  <div class='caption'>
+                                      <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
+                                      <p><center>$$product_price</center></p>
+                                      <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
+                                  </div>
+                              </div>
+                          </div>
+
+    ";
+  }
+}
+?>
+
+
+
+  
                 </div>
 
             </div>

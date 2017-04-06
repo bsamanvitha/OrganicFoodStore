@@ -66,7 +66,7 @@ include("functions/functions.php")
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
-                 	<li>
+                    <li>
                         <a href="index.php">Home</a>
                     </li>
                     <li>
@@ -80,11 +80,12 @@ include("functions/functions.php")
                     </li>
 
                     <li>
-                      <div class = "navbar-form"
-                      <form>
-                          <input type="text" placeholder="Search..." id='box'><input type="submit" value=" " id="btn">
-                      </form>
-                    </div>
+                     <div id="form">
+          <form method="get" action="results.php" enctype="multipart/form-data">
+            <input type="text" name="user_query" placeholder="Search a product" / >
+            <input type="submit" name="search" value="Search"/>
+        </form>
+                    </li>
                     </li>
 
                     <li>
