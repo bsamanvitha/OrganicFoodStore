@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2017 at 02:47 AM
+-- Generation Time: Apr 07, 2017 at 03:10 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -27,7 +27,7 @@ USE `ofsdb`;
 --
 -- Table structure for table `cart`
 --
--- Creation: Mar 23, 2017 at 10:23 PM
+-- Creation: Apr 06, 2017 at 11:23 PM
 --
 
 DROP TABLE IF EXISTS `cart`;
@@ -55,7 +55,7 @@ INSERT INTO `cart` (`p_id`, `ip_add`, `qty`) VALUES
 --
 -- Table structure for table `categories`
 --
--- Creation: Mar 29, 2017 at 03:21 AM
+-- Creation: Apr 06, 2017 at 11:23 PM
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -84,7 +84,7 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Table structure for table `products`
 --
--- Creation: Mar 29, 2017 at 03:21 AM
+-- Creation: Apr 06, 2017 at 11:23 PM
 --
 
 DROP TABLE IF EXISTS `products`;
