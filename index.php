@@ -72,10 +72,10 @@ include("functions/functions.php")
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="signIn.php">Sign in</a>
+                        <a href="customer_login.php">Log in</a>
                     </li>
                     <li>
-                        <a href="aboutus.php">About Us</a>
+                        <a href="about/aboutus.php">About Us</a>
                     </li>
                     <li>
                         <a href="contact/contact.html">Contact Us</a>
@@ -97,9 +97,36 @@ include("functions/functions.php")
 
                           </span></a>
 
-
-
                   </li>
+
+                  <li><a>
+                    <?php
+            					if(isset($_SESSION['customer_email'])){
+            					echo "<b>Welcome: </b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'>Your</b>" ;
+            					}
+            					else {
+            					echo "<b>Welcome Guest!</b>";
+            					}
+            					?>
+                  </a></li>
+
+                  <li><a>
+                    <?php
+                					if(!isset($_SESSION['customer_email'])){
+
+                					echo "<a href='checkout.php' style='color:orange;'>Log in</a>";
+
+                					}
+                					else {
+                					echo "<a href='logout.php' style='color:orange;'>Log out</a>";
+                					}
+
+                			?>
+                  </a></li>
+
+
+
+
                 </ul>
 
             <!-- /.navbar-collapse -->
