@@ -71,10 +71,10 @@ include("functions/functions.php")
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="?????">Sign in</a>
+                        <a href="customer_login.php">Sign in</a>
                     </li>
                     <li>
-                        <a href="aboutus.php">About Us</a>
+                        <a href="about/aboutus.php">About Us</a>
                     </li>
                     <li>
                         <a href="contact/contact.html">Contact Us</a>
@@ -131,10 +131,10 @@ include("functions/functions.php")
                       if(isset($_GET['search'])){
                         $search_query = $_GET['user_query'];
 
-  //get products that match with product_keywords from the product and the inputted search word in the search button 
+  //get products that match with product_keywords from the product and the inputted search word in the search button
   $get_products = "select * from products where product_keywords like '%$search_query%'";
 
-                       
+
   //run this query
   $run_products = mysqli_query($con, $get_products); //2nd field: function that has the query
 
@@ -169,7 +169,7 @@ include("functions/functions.php")
 
 
 
-  
+
                 </div>
 
             </div>

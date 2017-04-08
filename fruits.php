@@ -71,10 +71,10 @@ include("functions/functions.php")
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="signIn.php">Sign in</a>
+                        <a href="customer_login.php">Sign in</a>
                     </li>
                     <li>
-                        <a href="aboutus.php">About Us</a>
+                        <a href="about/aboutus.php">About Us</a>
                     </li>
                     <li>
                         <a href="contact/contact.html">Contact Us</a>
@@ -82,10 +82,10 @@ include("functions/functions.php")
 
                     <li>
                      <div id="form">
-          <form method="get" action="results.php" enctype="multipart/form-data">
-            <input type="text" name="user_query" placeholder="Search a product" / >
-            <input type="submit" name="search" value="Search"/>
-        </form>
+                          <form method="get" action="results.php" enctype="multipart/form-data">
+                            <input type="text" name="user_query" placeholder="Search a product" / >
+                            <input type="submit" name="search" value="Search"/>
+                        </form>
                     </li>
                     </li>
 

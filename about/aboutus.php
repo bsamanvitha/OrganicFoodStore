@@ -66,7 +66,7 @@
         <!-- Introduction Row -->
         <div class="row">
             <div class="col-lg-12">
-                <center><h1 class="page-header">About <img src = "logo.png" style = "width:200px;height:100px;">
+                <center><h1 class="page-header">About <img src = "images/logo.png" style = "width:200px;height:100px;">
                     <p><br><small>It's Nice to Meet You!</small></br></p>
                 </h1></center>
                 <p>We are proud to deliver a variety of organic foods that are freshly grown from Californian farms. Our produce are grown without harmful pesticides and synthetic fertilizers. Our customer service is our top priority and we hope you have wonderful experience visiting our stores and online shopping!</large></p>

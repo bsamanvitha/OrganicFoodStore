@@ -4,8 +4,6 @@
 //3rd field by default the pw is none for locahost, but online there will be a pw
 $con = mysqli_connect("localhost", "root", "", "ofsdb"); //db name is 4th field
 
-
-
 function getIp() {
     $ip = $_SERVER['REMOTE_ADDR'];
 

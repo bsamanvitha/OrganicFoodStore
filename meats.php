@@ -72,20 +72,21 @@ include("functions/functions.php")
                         <a href="index.html">Home</a>
                     </li>
                     <li>
-                        <a href="signIn.php">Sign in</a>
+                        <a href="customer_login.php">Sign in</a>
                     </li>
                     <li>
-                        <a href="aboutus.php">About Us</a>
+                        <a href="about/aboutus.php">About Us</a>
                     </li>
                     <li>
                         <a href="contact/contact.html">Contact Us</a>
                     </li>
 
                     <li>
-                      <div class = "navbar-form"
-                      <form>
-                          <input type="text" placeholder="Search..." id='box'><input type="submit" value=" " id="btn">
-                      </form>
+                      <div id="form">
+                          <form method="get" action="results.php" enctype="multipart/form-data">
+                            <input type="text" name="user_query" placeholder="Search a product" / >
+                            <input type="submit" name="search" value="Search"/>
+                        </form>
                     </div>
                     </li>
 
