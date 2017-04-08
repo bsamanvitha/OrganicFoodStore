@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include("includes/db.php"); 
 	
 	if(isset($_GET['delete_pro'])){
