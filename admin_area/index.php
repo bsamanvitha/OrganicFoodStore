@@ -1,3 +1,14 @@
+<?php 
+session_start(); 
+
+if(!isset($_SESSION['user_email'])){ //if variable is not set (from login.php page)
+	
+	echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
+}
+else { //if it is set, display page
+
+?>
+
 <!DOCTYPE> 
 
 <html>
@@ -31,6 +42,7 @@
 		</div>
 
 		<div id="left">
+		<h2 style="color:red; text-align:center;"><?php echo @$_GET['logged_in']; ?></h2>
 		<?php
 		if(isset($_GET['insert_product'])){
 		
@@ -74,3 +86,6 @@
 
 </body>
 </html>
+
+
+<?php } ?>

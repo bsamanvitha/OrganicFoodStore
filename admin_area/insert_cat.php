@@ -1,3 +1,13 @@
+<?php 
+session_start(); 
+
+if(!isset($_SESSION['user_email'])){ //if variable is not set (from login.php page)
+	
+	echo "<script>window.open('login.php?not_admin=You are not an Admin!','_self')</script>";
+}
+else { //if it is set, display page
+
+?>
 
 <form action="" method="post" style="padding:80px;">
 
@@ -26,3 +36,5 @@ include("includes/db.php");
 	}
 
 ?>
+
+<?php } ?>
