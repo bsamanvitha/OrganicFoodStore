@@ -61,16 +61,16 @@ include("functions/functions.php")
                     <span class="icon-bar"></span>
                 </button>
 
+                <a class="navbar-brand" href="index.php">OFS Home</a>
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
 
+
                     <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="customer_login.php">Sign in</a>
+                        <a href="customer_login.php">Log in</a>
                     </li>
                     <li>
                         <a href="about/aboutus.php">About Us</a>
