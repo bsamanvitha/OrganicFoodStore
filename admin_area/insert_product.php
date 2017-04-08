@@ -15,7 +15,7 @@
 
 
 	<form action="insert_product.php" method="post" enctype="multipart/form-data">
-		<table align="center" width="700" border="2" bgcolor="yellow">
+		<table align="center" width="795" border="2" bgcolor="187eae">
 		<!-- <?php phpinfo(); ?> !-->
 			<tr align="center">
 				<td colspan="8"><h2>Insert New Product Here</h2></td>
