@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2017 at 03:10 AM
+-- Generation Time: Apr 08, 2017 at 05:08 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -25,9 +25,36 @@ USE `ofsdb`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admins`
+--
+-- Creation: Apr 08, 2017 at 02:32 AM
+--
+
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `user_id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_email` varchar(255) NOT NULL,
+  `user_pass` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `admins`:
+--
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`user_id`, `user_email`, `user_pass`) VALUES
+(1, 'somerandomemail@aol.com', 'test');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cart`
 --
--- Creation: Apr 06, 2017 at 11:23 PM
+-- Creation: Apr 08, 2017 at 02:27 AM
 --
 
 DROP TABLE IF EXISTS `cart`;
@@ -55,7 +82,7 @@ INSERT INTO `cart` (`p_id`, `ip_add`, `qty`) VALUES
 --
 -- Table structure for table `categories`
 --
--- Creation: Apr 06, 2017 at 11:23 PM
+-- Creation: Apr 08, 2017 at 02:27 AM
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -84,7 +111,7 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Table structure for table `products`
 --
--- Creation: Apr 06, 2017 at 11:23 PM
+-- Creation: Apr 08, 2017 at 02:27 AM
 --
 
 DROP TABLE IF EXISTS `products`;
