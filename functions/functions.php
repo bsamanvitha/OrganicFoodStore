@@ -177,8 +177,8 @@ function getVegetables(){
                                   <img src='images/$product_image' style = 'width:180px;height:190px;''>
                                   <div class='caption'>
                                       <h4><center><a href='desc.php?product_id=$product_id'>$product_title</a></center></h4>
-                                      <p><center>$$product_price</center></p>
-                                      <p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
+                                      <p><center>$$product_price</center></p> 
+                                      <p><center><a href='index.php?add_cart=$product_id'><button type='button' class='btn btn-secondary'>Add to Cart</button></a></center></p>                       
                                   </div>
                               </div>
                           </div>
@@ -188,6 +188,7 @@ function getVegetables(){
 	}
 }
 
+//<p><center><a href='index.php?add_cart=$product_id'><class='btn btn-primary'>Add to Cart</a></center></p>
 
 function getFruits(){
 	global $con; //will make it work inside this function
