@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 16, 2015 at 11:41 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Apr 13, 2017 at 12:33 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,22 +14,31 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `database`
 --
+CREATE DATABASE IF NOT EXISTS `database` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `database`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `categories`
 --
+-- Creation: Apr 12, 2017 at 08:19 AM
+--
 
-CREATE TABLE IF NOT EXISTS `categories` (
-`cat_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE `categories` (
+  `cat_id` int(11) NOT NULL,
   `cat_title` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `categories`:
+--
 
 --
 -- Dumping data for table `categories`
@@ -41,20 +50,26 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 (3, 'Dairy'),
 (6, 'Snacks');
 
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `orders`
 --
+-- Creation: Apr 12, 2017 at 08:19 AM
+--
 
-CREATE TABLE IF NOT EXISTS `orders` (
-`order_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
   `order_amount` float NOT NULL,
   `order_transaction` varchar(255) NOT NULL,
   `order_status` varchar(255) NOT NULL,
   `order_currency` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `orders`:
+--
 
 --
 -- Dumping data for table `orders`
@@ -68,9 +83,12 @@ INSERT INTO `orders` (`order_id`, `order_amount`, `order_transaction`, `order_st
 --
 -- Table structure for table `products`
 --
+-- Creation: Apr 12, 2017 at 08:19 AM
+--
 
-CREATE TABLE IF NOT EXISTS `products` (
-`product_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `product_id` int(11) NOT NULL,
   `product_title` varchar(255) NOT NULL,
   `product_category_id` int(11) NOT NULL,
   `product_price` float NOT NULL,
@@ -78,64 +96,75 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_description` text NOT NULL,
   `short_desc` text NOT NULL,
   `product_image` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `products`:
+--
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_title`, `product_image`, `short_desc`, `product_category_id`, `product_price`, `product_description`, `product_quantity`) VALUES
-(1, 'Lettuce', 'lettuce.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 1, 'vegetable', 5),
-(2, 'Onions', 'onions.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 2, 'onions', 5),
-(3, 'Broccoli', 'broccoli.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 2, 'broccoli', 5),
-(4, 'Mushrooms', 'mushroom.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 3, 'mushroom', 5),
-(5, 'Carrots', 'carrot.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 3, 'carrots', 5),
-(6, 'Red Bellpeppers', 'bellpepper.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 3, 'bellpepper', 5),
-(7, 'Celery', 'celery.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 3, 'celery', 5),
-(8, 'Corn', 'corn.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 4, 'corn', 5),
-(9, 'Cucumbers', 'cucumber.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 1, 3, 'cucumber', 5),
-(10, 'Apples', 'redApple.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 2, 'apple', 5),
-(11, 'Oranges', 'orange.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 4, 'orange', 5),
-(12, 'Pears', 'pear.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 3, 'pear', 5),
-(13, 'Banana', 'banana.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 3, 'banana', 5),
-(14, 'Grapes', 'grapes.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 3, 'grapes', 5),
-(15, 'Strawberry', 'strawberries.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 5, 'strawberry', 5),
-(16, 'Peaches', 'peaches.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 5, 'peaches', 5),
-(17, 'Mangoes', 'mango.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 6, 'Mango', 5),
-(18, 'Blueberries', 'blueberries.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 2, 4, 'berries', 5),
-(19, 'Milk', 'milk.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 5, 'milk', 5),
-(20, 'Chocolate Milk', 'chocomilk.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 5, 'chocolate', 5),
-(21, 'Ice Cream', 'icecream.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 10, 'ice', 5),
-(22, 'Eggs', 'eggs.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 5, 'eggs', 5),
-(23, 'Cheddar Cheese', 'cheddar.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 12, 'cheddar', 5),
-(24, 'Butter', 'butter.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 6, 'butter', 5),
-(25, 'Feta Cheese', 'fetacheese.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 12, 'feta cheese', 5),
-(26, 'Stony Yogurt', 'yogurtStony.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 7, 'yogurt', 5),
-(27, 'Cream Cheese', 'creamcheese.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 3, 8, 'cream cheese', 5),
-(28, 'Pretzels', 'pretzels.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 5, 'pretzel', 5),
-(29, 'Bunnies Fruit Snacks', 'bunnies.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 4, 'fruit snacks', 5),
-(30, 'Banana Chips', 'bananachips.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 7, 'chips', 5),
-(31, 'Corn chips', 'cornchips.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 6, 'corn chips', 5),
-(32, 'Tortilla chips', 'tortillachips.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 7, 'tortilla chips', 5),
-(33, 'Dark Chocolate', 'chocolate.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 19, 'chocolate', 5),
-(34, 'Dark Chocolate Almonds', 'chocoalmonds.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 8, 'almonds', 5),
-(35, 'Apple Chips', 'applechips.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 8, 'apple chips', 5),
-(36, 'Fruit Snacks', 'fruitsnacks.png', '<p>Delicious Green Crunchy Lettuce!!</p>', 6, 10, 'snacks', 5);
+INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `product_price`, `product_quantity`, `product_description`, `short_desc`, `product_image`) VALUES
+(1, 'Lettuce', 1, 1, 5, 'vegetable', '<p>Delicious Green Crunchy Lettuce!!</p>', 'lettuce.png'),
+(2, 'Onions', 1, 2, 5, 'onions', '<p>Delicious Green Crunchy Lettuce!!</p>', 'onions.png'),
+(3, 'Broccoli', 1, 2, 5, 'broccoli', '<p>Delicious Green Crunchy Lettuce!!</p>', 'broccoli.png'),
+(4, 'Mushrooms', 1, 3, 5, 'mushroom', '<p>Delicious Green Crunchy Lettuce!!</p>', 'mushroom.png'),
+(5, 'Carrots', 1, 3, 5, 'carrots', '<p>Delicious Green Crunchy Lettuce!!</p>', 'carrot.png'),
+(6, 'Red Bellpeppers', 1, 3, 5, 'bellpepper', '<p>Delicious Green Crunchy Lettuce!!</p>', 'bellpepper.png'),
+(7, 'Celery', 1, 3, 5, 'celery', '<p>Delicious Green Crunchy Lettuce!!</p>', 'celery.png'),
+(8, 'Corn', 1, 4, 5, 'corn', '<p>Delicious Green Crunchy Lettuce!!</p>', 'corn.png'),
+(9, 'Cucumbers', 1, 3, 5, 'cucumber', '<p>Delicious Green Crunchy Lettuce!!</p>', 'cucumber.png'),
+(10, 'Apples', 2, 2, 5, 'apple', '<p>Delicious Green Crunchy Lettuce!!</p>', 'redApple.png'),
+(11, 'Oranges', 2, 4, 5, 'orange', '<p>Delicious Green Crunchy Lettuce!!</p>', 'orange.png'),
+(12, 'Pears', 2, 3, 5, 'pear', '<p>Delicious Green Crunchy Lettuce!!</p>', 'pear.png'),
+(13, 'Banana', 2, 3, 5, 'banana', '<p>Delicious Green Crunchy Lettuce!!</p>', 'banana.png'),
+(14, 'Grapes', 2, 3, 5, 'grapes', '<p>Delicious Green Crunchy Lettuce!!</p>', 'grapes.png'),
+(15, 'Strawberry', 2, 5, 5, 'strawberry', '<p>Delicious Green Crunchy Lettuce!!</p>', 'strawberries.png'),
+(16, 'Peaches', 2, 5, 5, 'peaches', '<p>Delicious Green Crunchy Lettuce!!</p>', 'peaches.png'),
+(17, 'Mangoes', 2, 6, 5, 'Mango', '<p>Delicious Green Crunchy Lettuce!!</p>', 'mango.png'),
+(18, 'Blueberries', 2, 4, 5, 'berries', '<p>Delicious Green Crunchy Lettuce!!</p>', 'blueberries.png'),
+(19, 'Milk', 3, 5, 5, 'milk', '<p>Delicious Green Crunchy Lettuce!!</p>', 'milk.png'),
+(20, 'Chocolate Milk', 3, 5, 5, 'chocolate', '<p>Delicious Green Crunchy Lettuce!!</p>', 'chocomilk.png'),
+(21, 'Ice Cream', 3, 10, 5, 'ice', '<p>Delicious Green Crunchy Lettuce!!</p>', 'icecream.png'),
+(22, 'Eggs', 3, 5, 5, 'eggs', '<p>Delicious Green Crunchy Lettuce!!</p>', 'eggs.png'),
+(23, 'Cheddar Cheese', 3, 12, 5, 'cheddar', '<p>Delicious Green Crunchy Lettuce!!</p>', 'cheddar.png'),
+(24, 'Butter', 3, 6, 5, 'butter', '<p>Delicious Green Crunchy Lettuce!!</p>', 'butter.png'),
+(25, 'Feta Cheese', 3, 12, 5, 'feta cheese', '<p>Delicious Green Crunchy Lettuce!!</p>', 'fetacheese.png'),
+(26, 'Stony Yogurt', 3, 7, 5, 'yogurt', '<p>Delicious Green Crunchy Lettuce!!</p>', 'yogurtStony.png'),
+(27, 'Cream Cheese', 3, 8, 5, 'cream cheese', '<p>Delicious Green Crunchy Lettuce!!</p>', 'creamcheese.png'),
+(28, 'Pretzels', 6, 5, 5, 'pretzel', '<p>Delicious Green Crunchy Lettuce!!</p>', 'pretzels.png'),
+(29, 'Bunnies Fruit Snacks', 6, 4, 5, 'fruit snacks', '<p>Delicious Green Crunchy Lettuce!!</p>', 'bunnies.png'),
+(30, 'Banana Chips', 6, 7, 5, 'chips', '<p>Delicious Green Crunchy Lettuce!!</p>', 'bananachips.png'),
+(31, 'Corn chips', 6, 6, 5, 'corn chips', '<p>Delicious Green Crunchy Lettuce!!</p>', 'cornchips.png'),
+(32, 'Tortilla chips', 6, 7, 5, 'tortilla chips', '<p>Delicious Green Crunchy Lettuce!!</p>', 'tortillachips.png'),
+(33, 'Dark Chocolate', 6, 19, 5, 'chocolate', '<p>Delicious Green Crunchy Lettuce!!</p>', 'chocolate.png'),
+(34, 'Dark Chocolate Almonds', 6, 8, 5, 'almonds', '<p>Delicious Green Crunchy Lettuce!!</p>', 'chocoalmonds.png'),
+(35, 'Apple Chips', 6, 8, 5, 'apple chips', '<p>Delicious Green Crunchy Lettuce!!</p>', 'applechips.png'),
+(36, 'Fruit Snacks', 6, 10, 5, 'snacks', '<p>Delicious Green Crunchy Lettuce!!</p>', 'fruitsnacks.png');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `reports`
 --
+-- Creation: Apr 12, 2017 at 08:19 AM
+--
 
-CREATE TABLE IF NOT EXISTS `reports` (
-`report_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `reports`;
+CREATE TABLE `reports` (
+  `report_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_price` float NOT NULL,
   `product_title` varchar(255) NOT NULL,
   `product_quantity` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `reports`:
+--
 
 --
 -- Dumping data for table `reports`
@@ -150,15 +179,50 @@ INSERT INTO `reports` (`report_id`, `product_id`, `order_id`, `product_price`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `slides`
+--
+-- Creation: Apr 12, 2017 at 09:44 PM
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`user_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `slides`;
+CREATE TABLE `slides` (
+  `slide_id` int(10) NOT NULL,
+  `slide_title` varchar(255) NOT NULL,
+  `slide_image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `slides`:
+--
+
+--
+-- Dumping data for table `slides`
+--
+
+INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_image`) VALUES
+(4, 'slide 1', 'slideImage1.png'),
+(5, 'slide 2', 'slideImage2.png'),
+(6, 'slide 3', 'slideImage3.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+-- Creation: Apr 12, 2017 at 08:19 AM
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- RELATIONS FOR TABLE `users`:
+--
 
 --
 -- Dumping data for table `users`
@@ -176,31 +240,37 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
- ADD PRIMARY KEY (`cat_id`);
+  ADD PRIMARY KEY (`cat_id`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
- ADD PRIMARY KEY (`order_id`);
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
- ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`product_id`);
 
 --
 -- Indexes for table `reports`
 --
 ALTER TABLE `reports`
- ADD PRIMARY KEY (`report_id`);
+  ADD PRIMARY KEY (`report_id`);
+
+--
+-- Indexes for table `slides`
+--
+ALTER TABLE `slides`
+  ADD PRIMARY KEY (`slide_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -210,27 +280,32 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=64;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT for table `slides`
+--
+ALTER TABLE `slides`
+  MODIFY `slide_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
