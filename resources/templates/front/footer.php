@@ -7,8 +7,13 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2030</p>
+                    <center><p>CS160 &copy; OFS Team One 2017</p></center>
                 </div>
+
+                <div>
+                  <center><img src = "../resources/uploads/heart.png" style = "width:90px;height:80px;"></center>
+                </div>
+
             </div>
         </footer>
 
