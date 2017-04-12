@@ -30,7 +30,12 @@
                      <li>
                         <a href="checkout.php">Checkout</a>
                     </li>
-
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                              <?php get_categories(); ?>
+                            </ul>
+                    </li>
                 </ul>
 
          
