@@ -11,8 +11,7 @@
           <?php include(TEMPLATE_FRONT . DS . "side_nav.php") ?>
 
 
-          <!--slider-->
-         
+          <!--slider
 
                   <div class="row carousel-holder">
 
@@ -25,13 +24,13 @@
                               </ol>
                               <div class="carousel-inner">
                                   <div class="item active">
-                                      <img class="slide-image" src="../resources/uploads/slideImage1.png" style = "width:900px;height:500px">
+                                      <img class="slide-image" src="../resources/uploads/slideImage1.png">
                                   </div>
                                   <div class="item">
-                                      <img class="slide-image" src="../resources/uploads/slideImage2.png" style = "width:900px;height:500px">
+                                      <img class="slide-image" src="../resources/uploads/slideImage2.png">
                                   </div>
                                   <div class="item">
-                                      <img class="slide-image" src="../resources/uploads/slideImage3.png" style = "width:900px;height:500px">
+                                      <img class="slide-image" src="../resources/uploads/slideImage3.png">
                                   </div>
                               </div>
                               <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -42,32 +41,27 @@
                               </a>
                           </div>
                       </div>
-
-              
-
+                -->
 
 
-<!--Code to make slider dynamic-
-
-            <div class="col-md-9">
+            <div class="container-fluid">
 
                 <div class="row carousel-holder">
 
                     <div class="col-md-12">
 
-                    ?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
+                    <?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
 
                     </div>
 
                 </div>
-------------------------------------------------------------------------->
+
 
                 <div class="row">
 
                     <?php get_products(); ?>
 
-
-                </div><!-- ROw ends here-->
+                </div>
 
             </div>
 
