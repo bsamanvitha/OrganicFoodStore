@@ -292,10 +292,12 @@ $product = <<<DELIMETER
             <h4 class="pull-right">&#36;{$row['product_price']}</h4>
             <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
             </h4>
-             <center><a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></center>
+             <center><a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart gi-2x" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign gi-2x" aria-hidden="true"></span></a></center>
         </div>
 
-
+        <style>
+        .gi-2x{font-size: 2em;}
+        </style>
        
     </div>
 </div>
@@ -406,12 +408,20 @@ $product = <<<DELIMETER
                     <div class="caption">
                         <h3>{$row['product_title']}</h3>
                         <p>{$row['product_description']};</p>
-                        <p>
-                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
-                        </p>
+                    
+                        <center><a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart gi-2x" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign gi-2x" aria-hidden="true"></span></a></center>
+        
+                        <style>
+        .gi-2x{font-size: 2em;}
+        </style>
                     </div>
                 </div>
             </div>
+
+
+          
+
+        
 
 DELIMETER;
 
