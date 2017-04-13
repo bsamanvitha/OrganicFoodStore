@@ -48,10 +48,33 @@
                     </form>
                 </div>
             </div>
+
+
+             <h1>Our store locations</h1>
+
+                    <br>
+                    <br>
+
+                    <h4>1271 W El Camino Real, Sunnyvale, CA 94086</h4>
+
+                    <br>
+                    <br>
+
+                    <h4>101 S Delaware St, San Mateo, CA 94401</h4>
+
+                    <br>
+                    <br>
+
+                    <h1>Visit Us</h1>
+
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1xBWCkOYPBXEs8IjWx8XXSrqhWm4" width="640" height="480"></iframe>
         </div>
+
+
 
     </div>
     <!-- /.container -->
 
 
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
+
+<?php include(TEMPLATE_FRONT . DS . "footer.php") ?>

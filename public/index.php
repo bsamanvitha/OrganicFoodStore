@@ -1,3 +1,6 @@
+
+
+<body>
 <?php require_once("../resources/config.php"); ?>
 
 <?php include(TEMPLATE_FRONT . DS . "header.php") ?>
@@ -11,7 +14,7 @@
           <?php include(TEMPLATE_FRONT . DS . "side_nav.php") ?>
 
 
-          <!--slider
+          <!--slider   -->
 
                   <div class="row carousel-holder">
 
@@ -41,10 +44,15 @@
                               </a>
                           </div>
                       </div>
-                -->
+
+
+
+              
 
 
             <div class="container-fluid">
+
+                <!--
 
                 <div class="row carousel-holder">
 
@@ -55,6 +63,8 @@
                     </div>
 
                 </div>
+
+                 -->
 
 
                 <div class="row">
@@ -68,5 +78,13 @@
         </div>
 
     </div>
+
+</body>
     <!-- /.container -->
 <?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
+
+<style>
+        body {
+            background-color: silver;
+        }
+    </style>
