@@ -273,7 +273,7 @@ if($page != $lastPage){
 }
 
 
-// Doen with pagination
+// Done with pagination
 
 
 
@@ -292,7 +292,7 @@ $product = <<<DELIMETER
             <h4 class="pull-right">&#36;{$row['product_price']}</h4>
             <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
             </h4>
-             <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
+             <center><a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a></center>
         </div>
 
 
