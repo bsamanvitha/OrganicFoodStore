@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2017 at 12:33 AM
+-- Generation Time: Apr 13, 2017 at 10:54 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -27,18 +27,12 @@ USE `database`;
 --
 -- Table structure for table `categories`
 --
--- Creation: Apr 12, 2017 at 08:19 AM
---
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `cat_id` int(11) NOT NULL,
   `cat_title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `categories`:
---
 
 --
 -- Dumping data for table `categories`
@@ -55,8 +49,6 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Table structure for table `orders`
 --
--- Creation: Apr 12, 2017 at 08:19 AM
---
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
@@ -66,10 +58,6 @@ CREATE TABLE `orders` (
   `order_status` varchar(255) NOT NULL,
   `order_currency` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `orders`:
---
 
 --
 -- Dumping data for table `orders`
@@ -83,8 +71,6 @@ INSERT INTO `orders` (`order_id`, `order_amount`, `order_transaction`, `order_st
 --
 -- Table structure for table `products`
 --
--- Creation: Apr 12, 2017 at 08:19 AM
---
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
@@ -97,10 +83,6 @@ CREATE TABLE `products` (
   `short_desc` text NOT NULL,
   `product_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `products`:
---
 
 --
 -- Dumping data for table `products`
@@ -149,8 +131,6 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `p
 --
 -- Table structure for table `reports`
 --
--- Creation: Apr 12, 2017 at 08:19 AM
---
 
 DROP TABLE IF EXISTS `reports`;
 CREATE TABLE `reports` (
@@ -161,10 +141,6 @@ CREATE TABLE `reports` (
   `product_title` varchar(255) NOT NULL,
   `product_quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `reports`:
---
 
 --
 -- Dumping data for table `reports`
@@ -181,8 +157,6 @@ INSERT INTO `reports` (`report_id`, `product_id`, `order_id`, `product_price`, `
 --
 -- Table structure for table `slides`
 --
--- Creation: Apr 12, 2017 at 09:44 PM
---
 
 DROP TABLE IF EXISTS `slides`;
 CREATE TABLE `slides` (
@@ -190,10 +164,6 @@ CREATE TABLE `slides` (
   `slide_title` varchar(255) NOT NULL,
   `slide_image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `slides`:
---
 
 --
 -- Dumping data for table `slides`
@@ -209,8 +179,6 @@ INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_image`) VALUES
 --
 -- Table structure for table `users`
 --
--- Creation: Apr 12, 2017 at 08:19 AM
---
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -221,16 +189,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- RELATIONS FOR TABLE `users`:
---
-
---
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
-(1, 'rico', 'rico@hotmail.com', '123'),
-(4, 'dem_user', 'support@edwindiaz.com', '123');
+(5, 'admin', 'admin@gmail.com', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -305,7 +268,7 @@ ALTER TABLE `slides`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
