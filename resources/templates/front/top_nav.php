@@ -36,6 +36,13 @@
                               <?php get_categories(); ?>
                             </ul>
                     </li>
+                    <li>
+                      <div id="form">
+          <form method="get" action="results.php" enctype="multipart/form-data">
+            <input type="text" name="user_query" placeholder="Search a product" / >
+            <input type="submit" name="search" value="Search"/>
+        </form>
+                    </li>
                 </ul>
 
          
