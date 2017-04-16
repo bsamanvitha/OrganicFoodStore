@@ -21,7 +21,8 @@
 
      <style>
         body {
-            background-color: #fffff;
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png');
+    		background-repeat: repeat;
         }
     </style>
 
