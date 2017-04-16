@@ -1373,7 +1373,7 @@ a.text-danger:hover {
 }
 .bg-primary {
   color: #fff;
-  background-color: #337ab7;
+  background-color: ##337ab7;
 }
 a.bg-primary:hover {
   background-color: #286090;
@@ -1532,7 +1532,7 @@ code {
   padding: 2px 4px;
   font-size: 90%;
   color: #c7254e;
-  background-color: #f9f2f4;
+  background-color: ##f9f2f4;
   border-radius: 4px;
 }
 kbd {

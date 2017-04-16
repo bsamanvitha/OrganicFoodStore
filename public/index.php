@@ -85,6 +85,6 @@
 
 <style>
         body {
-            background-color: silver;
+            background-color: #FFFFF;
         }
     </style>
