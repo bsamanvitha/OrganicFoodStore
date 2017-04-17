@@ -18,6 +18,8 @@
 
          <?php get_products_in_shop_page(); ?>
 
+         
+
 
         </div>
         <!-- /.row -->

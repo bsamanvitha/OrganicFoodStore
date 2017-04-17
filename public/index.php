@@ -45,7 +45,7 @@
                           </div>
                       </div>
 
-
+<br></br>
 
               
 
@@ -67,7 +67,15 @@
                  -->
 
 
+                
                 <div class="row">
+
+                    
+
+                    <h1>Shop</h1>
+
+                      <br></br>
+                  
 
                     <?php get_products(); ?>
 

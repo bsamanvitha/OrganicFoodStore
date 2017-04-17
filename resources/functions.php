@@ -149,7 +149,7 @@ if(isset($_GET['page'])){ //get page from URL if its there
 }
 
 
-$perPage = 6; // Items per page here 
+$perPage = 8; // Items per page here 
 
 $lastPage = ceil($rows / $perPage); // Get the value of the last page
 
@@ -407,7 +407,7 @@ $product = <<<DELIMETER
                     <img src="../resources/{$product_image}" style = 'width:180px;height:190px;'>
                     <div class="caption">
                         <h3>{$row['product_title']}</h3>
-                        <p>{$row['product_description']};</p>
+                        <p>{$row['product_price']}</p>
                     
                         <center><a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart gi-2x" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign gi-2x" aria-hidden="true"></span></a></center>
         
