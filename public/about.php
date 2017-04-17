@@ -10,8 +10,7 @@
         <!-- Introduction Row -->
         <div class="row">
             <div class="col-lg-12">
-                <center><h1 class="page-header">About
-                <img src = "../resources/uploads/logo.png" style = "width:200px;height:100px;">
+                <center><h1 class="page-header">About Us
                 <center><p><small>It's Nice to Meet You!</small></p></center>
 
                 </h1></center>

@@ -7,41 +7,58 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">OFS Home</a>
+
+                <img src = "../resources/uploads/logo.png" style = "width:120px;height:60px;"></a>
+
+                <!--<a class="navbar-brand" href="index.php">Home</a>-->
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+
+                    <li>
+                        <a href="index.php">Home</a>
+                    </li>
+
                     <li>
                         <a href="shop.php">Products</a>
                     </li>
-                    <li>
-                        <a href="login.php">Login</a>
-                    </li>
-                    <li>
-                        <a href="admin">Admin</a>
-                    </li>
-                     <li >
-                        <a href="contact.php">Contact Us</a>
-                    </li>
-                     <li >
-                        <a href="about.php">About Us</a>
-                    </li>
-                     <li>
-                        <a href="checkout.php">Checkout</a>
-                    </li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                               <?php get_categories(); ?>
                             </ul>
                     </li>
+
                     <li>
-                      <div id="form">
-          <form method="get" action="results.php" enctype="multipart/form-data">
-            <input type="text" name="user_query" placeholder="Search a product" / >
-            <input type="submit" name="search" value="Search"/>
-        </form>
+                        <a href="login.php">Log In</a>
+                    </li>
+
+                    <li>
+                        <a href="admin">Admin</a>
+                    </li>
+
+                     <li >
+                        <a href="contact.php">Contact Us</a>
+                    </li>
+
+                     <li >
+                        <a href="about.php">About Us</a>
+                    </li>
+                
+
+                    <li>
+                        <a href="checkout.php">Shopping Cart</a>
+                    </li>
+
+                    <li>
+                    <div id="form">
+                          <form method="get" action="results.php" enctype="multipart/form-data">
+                            <input type="text" name="user_query" placeholder="Search a product" / >
+                            <input type="submit" name="search" value="Search"/>
+                        </form>
                     </li>
                 </ul>
 

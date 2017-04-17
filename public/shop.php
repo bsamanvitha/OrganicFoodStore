@@ -6,7 +6,7 @@
     <div class="container">
 
         <header>
-            <h1>Shop</h1>
+            <h1><center>All products</center></h1>
         </header>
 
         <hr>
