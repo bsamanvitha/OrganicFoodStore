@@ -362,13 +362,13 @@ $product = <<<DELIMETER
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="../resources/{$product_image}" style = 'width:180px;height:190px;>
+                    <a href="item.php?id={$row['product_id']}"><img style="width:180px;height:190px;" src="../resources/{$product_image}" alt=""></a>
                     <div class="caption">
+                    <h4>&#36;{$row['product_price']}</h4>
                         <h3>{$row['product_title']}</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                       
                         <p>
-                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
-                        </p>
+<a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart gi-2x" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign gi-2x" aria-hidden="true"></span></a>                        </p>
                     </div>
                 </div>
             </div>
@@ -407,7 +407,7 @@ $product = <<<DELIMETER
                     <img src="../resources/{$product_image}" style = 'width:180px;height:190px;'>
                     <div class="caption">
                         <h3>{$row['product_title']}</h3>
-                        <p>{$row['product_price']}</p>
+                         <h4>&#36;{$row['product_price']}</h4>
                     
                         <center><a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart gi-2x" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign gi-2x" aria-hidden="true"></span></a></center>
         
