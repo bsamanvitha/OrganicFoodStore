@@ -23,22 +23,15 @@ defined("") ? null : define("", "root");
 
 defined("database") ? null : define("database",  "ecom");
 
-
-
-#$connection = mysqli_connect(localhost,root,"",database);
 #$connection = mysqli_connect("localhost","root","","database");
+#uncomment the above for local connection
 
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
 $server = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
-
 $connection = mysqli_connect($server, $username, $password, $db);
-
-#$connection = mysqli_connect($server, $username, $password, $db);
-#$connection = new mysqli($server, $username, $password, $db);
 
 
 require_once("functions.php");
