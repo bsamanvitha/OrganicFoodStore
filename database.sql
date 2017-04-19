@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Creation: Apr 14, 2017 at 12:24 AM
 --
-
-CREATE TABLE `categories` (
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
   `cat_id` int(11) NOT NULL,
   `cat_title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -54,8 +54,8 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Creation: Apr 14, 2017 at 12:24 AM
 --
-
-CREATE TABLE `orders` (
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(11) NOT NULL,
   `order_amount` float NOT NULL,
   `order_transaction` varchar(255) NOT NULL,
@@ -81,8 +81,8 @@ INSERT INTO `orders` (`order_id`, `order_amount`, `order_transaction`, `order_st
 --
 -- Creation: Apr 14, 2017 at 12:24 AM
 --
-
-CREATE TABLE `products` (
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int(11) NOT NULL,
   `product_title` varchar(255) NOT NULL,
   `product_category_id` int(11) NOT NULL,
@@ -148,7 +148,8 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `p
 -- Creation: Apr 14, 2017 at 12:24 AM
 --
 
-CREATE TABLE `reports` (
+DROP TABLE IF EXISTS `reports`;
+CREATE TABLE IF NOT EXISTS `reports` (
   `report_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -179,7 +180,9 @@ INSERT INTO `reports` (`report_id`, `product_id`, `order_id`, `product_price`, `
 -- Creation: Apr 14, 2017 at 12:24 AM
 --
 
-CREATE TABLE `slides` (
+
+DROP TABLE IF EXISTS `slides`;
+CREATE TABLE IF NOT EXISTS `slides` (
   `slide_id` int(10) NOT NULL,
   `slide_title` varchar(255) NOT NULL,
   `slide_image` text NOT NULL
@@ -206,7 +209,8 @@ INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_image`) VALUES
 -- Creation: Apr 14, 2017 at 12:24 AM
 --
 
-CREATE TABLE `users` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,

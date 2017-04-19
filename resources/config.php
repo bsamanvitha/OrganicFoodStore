@@ -35,7 +35,8 @@ $username = $url["user"];
 $password = $url["pass"];
 $db = substr($url["path"], 1);
 
-$conn = new mysqli($server, $username, $password, $db);
+#$conn = new mysqli($server, $username, $password, $db);
+$connection = mysqli_connect($server, $username, $password, $db);
 
 require_once("functions.php");
 require_once("cart.php");
