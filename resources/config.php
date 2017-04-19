@@ -31,11 +31,11 @@ defined("database") ? null : define("database",  "ecom");
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $server = $url["host"];
-$username = $url["user"];
-$password = $url["pass"];
+$username = $url["b7b48db3f110c8"];
+$password = $url["f399acaf571a6a8"];
 $db = substr($url["path"], 1);
 
-$connection = new mysqli($server, $username, $password, $db);
+$connection = mysqli_connect($server, $username, $password, $db);
 #$connection = new mysqli($server, $username, $password, $db);
 
 
