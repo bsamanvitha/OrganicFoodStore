@@ -90,7 +90,14 @@ include(TEMPLATE_FRONT . DS . "header.php");
     <!-- /.container -->';
 include(TEMPLATE_FRONT . DS . "footer.php");
 
+echo '
 
+<style>
+        body {
+            background-image: url(\'https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png\');
+            background-repeat: repeat;
+        }
+    </style>';
 ?>
 
 
