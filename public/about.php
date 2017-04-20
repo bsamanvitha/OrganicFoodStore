@@ -1,10 +1,7 @@
 <?php 
-#require_once("../resources/config.php");
-#include(TEMPLATE_FRONT . DS . "header.php");
+require_once("../resources/config.php");
+include(TEMPLATE_FRONT . DS . "header.php");
 
-#require_once("../resources/functions.php");
-#require_once("../resources/cart.php");
-#require_once("../resources/templates/front/header.php");
 
 
 
@@ -71,7 +68,7 @@ echo '
 
         <!-- Footer -->';
 
-#include(TEMPLATE_FRONT . DS . "footer.php");
+include(TEMPLATE_FRONT . DS . "footer.php");
 
 
 ?>
