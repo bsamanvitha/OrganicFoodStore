@@ -1,4 +1,4 @@
-
+<?php 
 
 <body>
 <?php require_once("../resources/config.php"); ?>
@@ -97,3 +97,6 @@
     		background-repeat: repeat;
         }
     </style>
+
+
+?>
