@@ -31,7 +31,7 @@ $server = $url["us-cdbr-iron-east-03.cleardb.net’"];
 $username = $url["bad8f37e5eda46"];
 $password = $url["8035b0f5"];
 $db = substr($url["heroku_5003a71979fc0af"], 1);
-$connection = mysqli_connect($server, $username, $password, $db);
+$connection = new mysqli($server, $username, $password, $db);
 
 require_once("functions.php");
 require_once("cart.php");
