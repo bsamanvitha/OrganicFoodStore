@@ -23,15 +23,15 @@ defined("") ? null : define("", "root");
 
 defined("database") ? null : define("database",  "ecom");
 
-$connection = mysqli_connect("localhost","root","","database");
+#$connection = mysqli_connect("localhost","root","","database");
 #uncomment the above for local connection
 
-#$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-#$server = $url["host"];
-#$username = $url["user"];
-#$password = $url["pass"];
-#$db = substr($url["path"], 1);
-#$connection = mysqli_connect($server, $username, $password, $db);
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$server = $url["us-cdbr-iron-east-03.cleardb.net’"];
+$username = $url["bad8f37e5eda46"];
+$password = $url["8035b0f5"];
+$db = substr($url["heroku_5003a71979fc0af"], 1);
+$connection = mysqli_connect($server, $username, $password, $db);
 
 require_once("functions.php");
 require_once("cart.php");
