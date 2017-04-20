@@ -1,9 +1,13 @@
-<?php require_once("../resources/config.php"); ?>
+<?php 
+#require_once("../resources/config.php");
+#include(TEMPLATE_FRONT . DS . "header.php");
+require_once("../resources/functions.php");
+require_once("../resources/cart.php");
+require_once("../resources/templates/front/header.php");
 
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
 
 
-
+echo '
     <!-- Page Content -->
     <div class="container">
 
@@ -11,7 +15,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <center><h1 class="page-header">About Us
-                <center><p><small>It's Nice to Meet You!</small></p></center>
+                <center><p><small>It\'s Nice to Meet You!</small></p></center>
 
                 </h1></center>
 
@@ -64,6 +68,9 @@
 
 
 
-        <!-- Footer -->
+        <!-- Footer -->';
 
-   <?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
+include(TEMPLATE_FRONT . DS . "footer.php");
+
+
+?>
