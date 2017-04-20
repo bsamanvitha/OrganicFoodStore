@@ -1,19 +1,18 @@
-<?php 
+<?php
+echo '<body>';
+require_once("../resources/config.php");
 
-<body>
-<?php require_once("../resources/config.php"); ?>
-
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
-
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-
-          <?php include(TEMPLATE_FRONT . DS . "side_nav.php") ?>
+include(TEMPLATE_FRONT . DS . "header.php");
 
 
+   echo 
+    '<div class="container">
+
+        <div class="row">';
+
+          include(TEMPLATE_FRONT . DS . "side_nav.php");
+
+          echo '
           <!--slider   -->
 
                   <div class="row carousel-holder">
@@ -58,7 +57,7 @@
 
                     <div class="col-md-12">
 
-                    <?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
+                    include(TEMPLATE_FRONT . DS . "slider.php")
 
                     </div>
 
@@ -74,12 +73,12 @@
 
                     <h1>Shop</h1>
 
-                      <br></br>
+                      <br></br>';
                   
 
-                    <?php get_products(); ?>
+                    get_products();
 
-                </div>
+                echo '</div>
 
             </div>
 
@@ -88,15 +87,10 @@
     </div>
 
 </body>
-    <!-- /.container -->
-<?php include(TEMPLATE_FRONT . DS . "footer.php") ?>
-
-<style>
-        body {
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/patterns/ep_naturalwhite.png');
-    		background-repeat: repeat;
-        }
-    </style>
+    <!-- /.container -->';
+include(TEMPLATE_FRONT . DS . "footer.php");
 
 
 ?>
+
+
