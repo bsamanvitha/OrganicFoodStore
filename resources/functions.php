@@ -288,10 +288,9 @@ $product = <<<DELIMETER
 <div class="col-md-3 col-sm-6 hero-feature">
     <div class="thumbnail">
         <a href="item.php?id={$row['product_id']}"><img style="width:180px;height:190px;" src="../resources/{$product_image}" alt=""></a>
-        <div class="caption">
-            <h4 class="pull-right">&#36;{$row['product_price']}</h4>
-            <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
-            </h4>
+        <div class="caption"><center>
+            <h3>{$row['product_title']}</h3>
+            <h4>&#36;{$row['product_price']}</h4></center>
              <center><a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart gi-2x" aria-hidden="true"></span></a> <a href="item.php?id={$row['product_id']}" class="btn btn-info"><span class="glyphicon glyphicon-info-sign gi-2x" aria-hidden="true"></span></a></center>
         </div>
 
