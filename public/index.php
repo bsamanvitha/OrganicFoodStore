@@ -71,7 +71,7 @@ include(TEMPLATE_FRONT . DS . "header.php");
 
                     
 
-                    <h1>Shop</h1>
+                   <center><h1><u>SHOP</u></h1></center>
 
                       <br></br>';
                   
