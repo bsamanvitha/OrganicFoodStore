@@ -2,13 +2,7 @@
 <?php include(TEMPLATE_FRONT . DS . "header.php") ?>
 
 
-<?php 
-
-
-process_transaction();
-
-
- ?>
+<?php process_transaction(); ?>
 
 
 
@@ -17,7 +11,7 @@ process_transaction();
     <!-- Page Content -->
     <div class="container">
 
-      <h1 class="text-center">THANK YOU</h1>
+      <h1 class="text-center">Thank you for shopping at OFS!</h1>
 
 
     </div>

@@ -71,6 +71,7 @@
                 <div class="row">
 
                     
+                    <br></br> 
 
                     <h1>Shop</h1>
 

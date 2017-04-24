@@ -6,6 +6,7 @@
     <div class="container">
 
         <!-- Jumbotron Header -->
+        <br></br>
         <header>
             <h1>Shop</h1>
         </header>

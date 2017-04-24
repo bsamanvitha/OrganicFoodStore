@@ -36,9 +36,11 @@
                         <a href="login.php">Log In</a>
                     </li>
 
+                    <!--
                     <li>
                         <a href="admin">Admin</a>
                     </li>
+                    -->
 
                      <li >
                         <a href="contact.php">Contact Us</a>

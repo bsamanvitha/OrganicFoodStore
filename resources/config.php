@@ -1,7 +1,8 @@
 <?php ob_start(); // Make sure you put this in line 1 with no space
 
+
 session_start();
-// session_destroy();
+//session_destroy();
 
 defined("DS") ? null : define("DS", DIRECTORY_SEPARATOR);
 
@@ -30,6 +31,5 @@ $connection = mysqli_connect("localhost","root","","database");
 
 require_once("functions.php");
 require_once("cart.php");
-
 
  ?>

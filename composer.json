@@ -1,3 +1,7 @@
 {
   
+    "require": {
+        "stripe/stripe-php": "^4.8",
+        "swiftmailer/swiftmailer": "^5.4"
+    }
 }

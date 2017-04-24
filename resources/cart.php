@@ -1,7 +1,7 @@
 <?php require_once("config.php"); ?>
 
 
-<?php 
+<?php
 
 
   if(isset($_GET['add'])) {
@@ -66,7 +66,7 @@
   }
 
 
- if(isset($_GET['delete'])) { 
+ if(isset($_GET['delete'])) {
 
   $_SESSION['product_' . $_GET['delete']] = '0';
   unset($_SESSION['item_total']);
@@ -121,7 +121,7 @@ $product = <<<DELIMETER
   <td>{$value}</td>
   <td>&#36;{$sub}</td>
   <td><a class='btn btn-warning' href="../resources/cart.php?remove={$row['product_id']}"><span class='glyphicon glyphicon-minus'></span></a>   <a class='btn btn-success' href="../resources/cart.php?add={$row['product_id']}"><span class='glyphicon glyphicon-plus'></span></a>
-<a class='btn btn-danger' href="../resources/cart.php?delete={$row['product_id']}"><span class='glyphicon glyphicon-remove'></span></a></td>         
+<a class='btn btn-danger' href="../resources/cart.php?delete={$row['product_id']}"><span class='glyphicon glyphicon-remove'></span></a></td>
   </tr>
 
 <input type="hidden" name="item_name_{$item_name}" value="{$row['product_title']}">
@@ -151,7 +151,7 @@ $_SESSION['item_quantity'] = $item_quantity;
            }
 
       }
- 
+
     }
 
 
@@ -160,17 +160,12 @@ $_SESSION['item_quantity'] = $item_quantity;
 
 
 function show_paypal() {
-
-
 if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
-
-
 $paypal_button = <<<DELIMETER
 
     <input type="image" name="upload" border="0"
 src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
 alt="PayPal - The safer, easier way to pay online">
-
 
 DELIMETER;
 
@@ -180,6 +175,116 @@ return $paypal_button;
 
 
 }
+
+function show_payment_form() {
+if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
+$cent_amount = $_SESSION['item_total'] * 100;
+$payment_form = <<<DELIMETER
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
+      <form action="charge.php" method="POST" name="order_form">
+      <input type="text" name="first_name" placeholder="First" required>
+      <input type="text" name="last_name" placeholder="Last" required>
+      <input type="text" name="email" placeholder="Email" required>
+      <input type="text" name="address" placeholder="Address" required>
+      <button id="purchaseButton">Purchase</button>
+      </form>
+
+      <script type="text/javascript">
+        var handler = StripeCheckout.configure({
+          key: 'pk_test_J3Ob97PamDCfYRVEpruWAHLL',
+          image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+          locale: 'auto',
+          token: function(token) {
+            // success! create order and save in db
+            document.forms["order_form"].submit();
+          }
+        });
+
+        document.getElementById('purchaseButton').addEventListener('click', function(e) {
+          //Check if form is valid
+          if(orderFormIsValid()){
+            // Open Checkout with further options:
+            handler.open({
+              name: 'OrganicFoodStore',
+              description: 'Your Order Total',
+              amount: {$cent_amount}
+            });
+            e.preventDefault();
+          }
+        });
+
+        // Close Checkout on page navigation:
+        window.addEventListener('popstate', function() {
+          handler.close();
+        });
+
+        function orderFormIsValid(){
+          var orderForm = document.forms["order_form"];
+          var first = orderForm["first_name"];
+          var last = orderForm["last_name"];
+          var email = orderForm["email"];
+          var address = orderForm["address"];
+
+          if(first.value == "" || !first.checkValidity()){
+            alert("Enter First Name");
+            return false;
+          }
+
+          if(last.value == "" || !last.checkValidity()){
+            alert("Enter Last Name");
+            return false;
+          }
+
+          if(email.value == "" || !email.checkValidity()){
+            alert("Enter Email");
+            return false;
+          }
+
+          if(address.value == "" || !address.checkValidity()){
+            alert("Enter Address");
+            return false;
+          }
+
+          return true;
+        }
+      </script>
+DELIMETER;
+return $payment_form;
+}
+}
+
+function show_stripe() {
+
+
+if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
+
+$cent_amount = $_SESSION['item_total'] * 100;
+$stripe_button = <<<DELIMETER
+
+<form action="charge.php" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    data-amount= {$cent_amount}
+    data-name="OrganicFoodStore"
+    data-description="Your Order Total"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+</form>
+
+DELIMETER;
+
+return $stripe_button;
+
+  }
+
+
+}
+
+
 
 
 
@@ -239,15 +344,16 @@ echo $item_quantity;
            }
 
       }
- 
+
     }
 
 session_destroy();
   } else {
 
 
-redirect("index.php");
+//redirect("index.php");
 
+redirect("thank_you.php");
 
 }
 
