@@ -25,13 +25,6 @@
                         <a href="shop.php">Products</a>
                     </li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                              <?php get_categories(); ?>
-                            </ul>
-                    </li>
-
                     <li>
                         <a href="login.php">Log In</a>
                     </li>
@@ -55,6 +48,15 @@
                         <a href="checkout.php">Shopping Cart</a>
                     </li>
 
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                              <?php get_categories(); ?>
+                            </ul>
+                    </li>
+
+                    
                     <li>
                     <div id="form">
                           <form method="get" action="results.php" enctype="multipart/form-data">

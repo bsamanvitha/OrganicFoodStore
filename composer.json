@@ -1,7 +1,15 @@
 {
-  
+  "require": {
+    "ext-mysql": "*"
+  },
+   "require": {
+      "ext-gettext": "*"
+    },
     "require": {
         "stripe/stripe-php": "^4.8",
         "swiftmailer/swiftmailer": "^5.4"
-    }
+    },
+   "require-dev": {
+      "heroku/heroku-buildpack-php": "*"
+   }
 }

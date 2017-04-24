@@ -75,41 +75,7 @@ while($row = fetch_array($query)):
 </div><!--Row For Image and Short Description-->
 
 
-        <hr>
 
-
-<!--Row for Tab Panel-->
-
-<div class="row">
-
-<div role="tabpanel">
-
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
-
-<p></p>
-
-<p><?php echo $row['product_description']; ?></p>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="profile">
-
-
-
- </div>
-
- </div>
-
-</div>
-
-
-</div><!--Row for Tab Panel-->
 
 
 
