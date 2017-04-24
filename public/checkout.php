@@ -29,6 +29,7 @@
           <?php cart(); ?>
         </tbody>
     </table>
+    <th><b>Enter your shipping information below:</b><th><p>
   <?php echo show_payment_form(); ?>
 
 

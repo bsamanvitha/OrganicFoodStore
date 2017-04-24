@@ -183,10 +183,10 @@ $payment_form = <<<DELIMETER
       <script src="https://checkout.stripe.com/checkout.js"></script>
 
       <form action="charge.php" method="POST" name="order_form">
-      <input type="text" name="first_name" placeholder="First" required>
-      <input type="text" name="last_name" placeholder="Last" required>
-      <input type="text" name="email" placeholder="Email" required>
-      <input type="text" name="address" placeholder="Address" required>
+      <input type="text" name="first_name" placeholder="First Name" required><p><p>
+      <input type="text" name="last_name" placeholder="Last Name" required><p>
+      <input type="text" name="email" placeholder="Email" required><p>
+      <input type="text" name="address" placeholder="Address" required><p>
       <button id="purchaseButton">Purchase</button>
       </form>
 
