@@ -22,7 +22,7 @@ $stripe = array(
                        $insert_pro = mysqli_query($connection, $insert_product);
 
    if ($insert_pro) {
-    echo "<script>alert('Order has been inserted!')</script>";
+    echo "<script>alert('Your order has been inserted!')</script>";
     echo "<script>window.open('checkout.php','_self')</script>";
    }
 
