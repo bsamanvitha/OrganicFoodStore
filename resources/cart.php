@@ -187,7 +187,7 @@ $payment_form = <<<DELIMETER
       <input type="text" name="last_name" placeholder="Last Name" required><p>
       <input type="text" name="email" placeholder="Email" required><p>
       <input type="text" name="address" placeholder="Address" required><p>
-      <button id="purchaseButton">Purchase</button>
+      <button id="purchaseButton" class="btn btn-primary">Buy Now</button>
       </form>
 
       <script type="text/javascript">

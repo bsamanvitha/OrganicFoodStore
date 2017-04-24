@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2017 at 06:26 PM
+-- Generation Time: Apr 24, 2017 at 10:50 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -27,19 +27,12 @@ USE `database`;
 --
 -- Table structure for table `categories`
 --
--- Creation: Apr 24, 2017 at 03:57 AM
---
 
 DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cat_title` varchar(255) NOT NULL,
-  PRIMARY KEY (`cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `categories`:
---
+CREATE TABLE `categories` (
+  `cat_id` int(11) NOT NULL,
+  `cat_title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
@@ -56,42 +49,48 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Table structure for table `orders`
 --
--- Creation: Apr 24, 2017 at 04:16 PM
---
 
 DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orders` (
+  `order_id` int(255) NOT NULL,
   `first_name` text NOT NULL,
   `last_name` text NOT NULL,
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `orders`:
---
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`order_id`, `first_name`, `last_name`, `email`, `address`, `timestamp`) VALUES
-(1, 'andrew', 'fide', 'afidel1743@yahoo.com', 'asd', '2017-04-24 16:21:51');
+(1, 'andrew', 'fide', 'afidel1743@yahoo.com', 'asd', '2017-04-24 16:21:51'),
+(2, 'Test', 'Test', 'test@aol.com', 'Test', '2017-04-24 18:40:02'),
+(3, 'test', 'test', 'test@ao.com', 'test', '2017-04-24 18:53:33'),
+(4, 't', 't', 'ofsbuyer2017@gmail.com', 't', '2017-04-24 19:03:51'),
+(5, 't', 't', 't', 't', '2017-04-24 19:25:08'),
+(6, 'test', 'test', 'naomicampbell951@gmail.com', 't', '2017-04-24 19:33:40'),
+(7, 't', 't', 'naomicampbell951', 't', '2017-04-24 19:36:47'),
+(8, 't', 't', 'ofsbuyer2017@gmail.com', 't', '2017-04-24 19:37:55'),
+(9, 't', 't', 'ofsbuyer2017@gmail.com', 't', '2017-04-24 19:38:30'),
+(10, 't', 't', 'naomicampbell951@gmail.com', 'fsf', '2017-04-24 19:38:54'),
+(11, 'f', 'f', 'naomicampbell951@gmail.com', 'g', '2017-04-24 19:41:31'),
+(12, 't', 't', 'naomicampbell951@gmail.com', 'd', '2017-04-24 19:45:01'),
+(13, 't', 't', 'ofsbuyer2017@gmail.com', 'd', '2017-04-24 19:46:23'),
+(14, 't', 't', 'naomicampbell951@gmail.com', 't', '2017-04-24 19:52:55'),
+(15, 't', 't', 'naomicampbell951@gmail.com', 't', '2017-04-24 19:54:12'),
+(16, 'Bob', 'Foods', 'ofsbuyer2017@gmail.com', '1287 Gary Boulevard San Francisco', '2017-04-24 20:33:17');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
 --
--- Creation: Apr 24, 2017 at 03:57 AM
---
 
 DROP TABLE IF EXISTS `products`;
-CREATE TABLE IF NOT EXISTS `products` (
-  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `products` (
+  `product_id` int(11) NOT NULL,
   `product_title` varchar(255) NOT NULL,
   `product_category_id` int(11) NOT NULL,
   `product_price` float NOT NULL,
@@ -99,13 +98,8 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_description` text NOT NULL,
   `short_desc` text NOT NULL,
   `product_image` varchar(255) NOT NULL,
-  `product_keywords` varchar(255) NOT NULL,
-  PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `products`:
---
+  `product_keywords` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `products`
@@ -117,7 +111,7 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `p
 (3, 'Broccoli', 1, 2, 5, 'broccoli', '<p>Nutritious and fresh green broccoli!</p>', 'broccoli.png', 'vegetables, Vegetables, Vegetable, vegetable, veges, Veges, broccoli, Broccoli'),
 (4, 'Mushrooms', 1, 3, 5, 'mushroom', '<p>Delicious and fresh mushrooms!</p>', 'mushroom.png', 'vegetables, Vegetables, Vegetable, vegetable, veges, Veges, mushroom, mushrooms, Mushroom, Mushrooms'),
 (5, 'Carrots', 1, 3, 5, 'carrots', '<p>Crunchy orange carrots!</p>', 'carrot.png', 'vegetables, Vegetables, Vegetable, vegetable, veges, Veges, carrot, Carrot, carrots, Carrots'),
-(6, 'Red Bellpeppers', 1, 3, 5, 'bellpepper', '<p>Delicious Green Crunchy Lettuce!!</p>', 'bellpepper.png', 'bellpepper.png\', \'vegetables, Vegetables, Vegetable, vegetable, veges, Veges, bellpepper, bell peppers, red bell peppers'),
+(6, 'Red Bellpeppers', 1, 3, 5, 'bellpepper', '<p>Delicious Red Bellpeppers!!</p>', 'bellpepper.png', 'bellpepper.png\', \'vegetables, Vegetables, Vegetable, vegetable, veges, Veges, bellpepper, bell peppers, red bell peppers'),
 (7, 'Celery', 1, 3, 5, 'celery', '<p>Crunchy fresh green celery!</p>', 'celery.png', 'vegetables, vegetables, vegetable, Vegetable, celery, Celery'),
 (8, 'Corn', 1, 4, 5, 'corn', '<p>Fresh golden yellow corn!</p>', 'corn.png', 'vegetables, vegetables, vegetable, Vegetable, corn, Corn'),
 (9, 'Cucumbers', 1, 3, 5, 'cucumber', '<p>Crunchy fresh cucumbers!</p>', 'cucumber.png', 'vegetables, vegetables, vegetable, Vegetable, cucumber, Cucumber, Cucumbers, cucumbers'),
@@ -154,23 +148,16 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `p
 --
 -- Table structure for table `reports`
 --
--- Creation: Apr 24, 2017 at 03:57 AM
---
 
 DROP TABLE IF EXISTS `reports`;
-CREATE TABLE IF NOT EXISTS `reports` (
-  `report_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reports` (
+  `report_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_price` float NOT NULL,
   `product_title` varchar(255) NOT NULL,
-  `product_quantity` int(11) NOT NULL,
-  PRIMARY KEY (`report_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `reports`:
---
+  `product_quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reports`
@@ -187,20 +174,13 @@ INSERT INTO `reports` (`report_id`, `product_id`, `order_id`, `product_price`, `
 --
 -- Table structure for table `slides`
 --
--- Creation: Apr 24, 2017 at 03:57 AM
---
 
 DROP TABLE IF EXISTS `slides`;
-CREATE TABLE IF NOT EXISTS `slides` (
-  `slide_id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `slides` (
+  `slide_id` int(10) NOT NULL,
   `slide_title` varchar(255) NOT NULL,
-  `slide_image` text NOT NULL,
-  PRIMARY KEY (`slide_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `slides`:
---
+  `slide_image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `slides`
@@ -216,21 +196,14 @@ INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_image`) VALUES
 --
 -- Table structure for table `users`
 --
--- Creation: Apr 24, 2017 at 03:57 AM
---
 
 DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
---
--- RELATIONS FOR TABLE `users`:
---
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -239,6 +212,80 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
 (5, 'admin', 'admin@gmail.com', 'admin');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`report_id`);
+
+--
+-- Indexes for table `slides`
+--
+ALTER TABLE `slides`
+  ADD PRIMARY KEY (`slide_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT for table `slides`
+--
+ALTER TABLE `slides`
+  MODIFY `slide_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

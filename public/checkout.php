@@ -12,7 +12,7 @@
 
 <div class="row">
       <h4 class="text-center bg-danger"><?php display_message(); ?></h4>
-      <h1>Checkout</h1>
+      <h1>Shopping Cart</h1>
 
 
     <table class="table table-striped">
@@ -29,7 +29,7 @@
           <?php cart(); ?>
         </tbody>
     </table>
-    <th><b>Enter your shipping information below:</b><th><p>
+    <th><h1>Enter your shipping information below:</h1><th><p>
   <?php echo show_payment_form(); ?>
 
 
