@@ -180,7 +180,12 @@ function show_payment_form() {
 if(isset($_SESSION['item_quantity']) && $_SESSION['item_quantity'] >= 1) {
 $cent_amount = $_SESSION['item_total'] * 100;
 $payment_form = <<<DELIMETER
+
+      <th><h1>Enter your shipping information below:</h1><th><p>
+      
       <script src="https://checkout.stripe.com/checkout.js"></script>
+
+
 
       <form action="charge.php" method="POST" name="order_form">
       <input type="text" name="first_name" placeholder="First Name" required><p><p>

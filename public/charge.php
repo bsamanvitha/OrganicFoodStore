@@ -23,7 +23,7 @@ $stripe = array(
 
    if ($insert_pro) {
     echo "<script>alert('Your order has been inserted!')</script>";
-    echo "<script>window.open('checkout.php','_self')</script>";
+    echo "<script>window.open('index.php','_self')</script>";
    }
 
                        

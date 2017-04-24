@@ -28,10 +28,12 @@
         <tbody>
           <?php cart(); ?>
         </tbody>
-    </table>
-    <th><h1>Enter your shipping information below:</h1><th><p>
-  <?php echo show_payment_form(); ?>
 
+    </table>
+ 
+
+  <!--<th><h1>Enter your shipping information below:</h1><th><p>-->
+  <?php echo show_payment_form(); ?>
 
 
 

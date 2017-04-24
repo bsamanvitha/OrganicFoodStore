@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2017 at 10:50 PM
+-- Generation Time: Apr 25, 2017 at 12:07 AM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,6 +26,8 @@ USE `database`;
 
 --
 -- Table structure for table `categories`
+--
+-- Creation: Apr 24, 2017 at 10:04 PM
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -48,6 +50,8 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 
 --
 -- Table structure for table `orders`
+--
+-- Creation: Apr 24, 2017 at 10:04 PM
 --
 
 DROP TABLE IF EXISTS `orders`;
@@ -86,6 +90,8 @@ INSERT INTO `orders` (`order_id`, `first_name`, `last_name`, `email`, `address`,
 
 --
 -- Table structure for table `products`
+--
+-- Creation: Apr 24, 2017 at 10:04 PM
 --
 
 DROP TABLE IF EXISTS `products`;
@@ -148,6 +154,8 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `p
 --
 -- Table structure for table `reports`
 --
+-- Creation: Apr 24, 2017 at 10:04 PM
+--
 
 DROP TABLE IF EXISTS `reports`;
 CREATE TABLE `reports` (
@@ -174,6 +182,8 @@ INSERT INTO `reports` (`report_id`, `product_id`, `order_id`, `product_price`, `
 --
 -- Table structure for table `slides`
 --
+-- Creation: Apr 24, 2017 at 10:04 PM
+--
 
 DROP TABLE IF EXISTS `slides`;
 CREATE TABLE `slides` (
@@ -196,6 +206,8 @@ INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_image`) VALUES
 --
 -- Table structure for table `users`
 --
+-- Creation: Apr 24, 2017 at 10:04 PM
+--
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -210,7 +222,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
-(5, 'admin', 'admin@gmail.com', 'admin');
+(5, 'admin', 'admin@gmail.com', 'admin'),
+(6, 'naomi', 'naomi@gmail.com', 'naomi');
 
 --
 -- Indexes for dumped tables
@@ -285,7 +298,7 @@ ALTER TABLE `slides`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
