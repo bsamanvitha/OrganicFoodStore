@@ -6,9 +6,29 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit5c190f4090766487d849f97c8dc57e3b
 {
+    public static $files = array (
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+    );
+
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Stripe\\' => 7,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5c190f4090766487d849f97c8dc57e3b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5c190f4090766487d849f97c8dc57e3b::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 17, 2017 at 03:29 AM
+-- Generation Time: Apr 24, 2017 at 06:26 PM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,19 +19,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `database`
 --
+CREATE DATABASE IF NOT EXISTS `database` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `database`;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `categories`
 --
--- Creation: Apr 14, 2017 at 12:24 AM
+-- Creation: Apr 24, 2017 at 03:57 AM
 --
+
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
-  `cat_id` int(11) NOT NULL,
-  `cat_title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_title` varchar(255) NOT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONS FOR TABLE `categories`:
@@ -52,16 +56,19 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Table structure for table `orders`
 --
--- Creation: Apr 14, 2017 at 12:24 AM
+-- Creation: Apr 24, 2017 at 04:16 PM
 --
+
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` int(11) NOT NULL,
-  `order_amount` float NOT NULL,
-  `order_transaction` varchar(255) NOT NULL,
-  `order_status` varchar(255) NOT NULL,
-  `order_currency` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `order_id` int(255) NOT NULL AUTO_INCREMENT,
+  `first_name` text NOT NULL,
+  `last_name` text NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONS FOR TABLE `orders`:
@@ -71,19 +78,20 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `order_amount`, `order_transaction`, `order_status`, `order_currency`) VALUES
-(63, 345, '34535434', 'Completed', 'USD');
+INSERT INTO `orders` (`order_id`, `first_name`, `last_name`, `email`, `address`, `timestamp`) VALUES
+(1, 'andrew', 'fide', 'afidel1743@yahoo.com', 'asd', '2017-04-24 16:21:51');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
 --
--- Creation: Apr 14, 2017 at 12:24 AM
+-- Creation: Apr 24, 2017 at 03:57 AM
 --
+
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `product_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_title` varchar(255) NOT NULL,
   `product_category_id` int(11) NOT NULL,
   `product_price` float NOT NULL,
@@ -91,8 +99,9 @@ CREATE TABLE IF NOT EXISTS `products` (
   `product_description` text NOT NULL,
   `short_desc` text NOT NULL,
   `product_image` varchar(255) NOT NULL,
-  `product_keywords` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `product_keywords` varchar(255) NOT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONS FOR TABLE `products`:
@@ -145,18 +154,19 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `p
 --
 -- Table structure for table `reports`
 --
--- Creation: Apr 14, 2017 at 12:24 AM
+-- Creation: Apr 24, 2017 at 03:57 AM
 --
 
 DROP TABLE IF EXISTS `reports`;
 CREATE TABLE IF NOT EXISTS `reports` (
-  `report_id` int(11) NOT NULL,
+  `report_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `product_price` float NOT NULL,
   `product_title` varchar(255) NOT NULL,
-  `product_quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `product_quantity` int(11) NOT NULL,
+  PRIMARY KEY (`report_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONS FOR TABLE `reports`:
@@ -177,16 +187,16 @@ INSERT INTO `reports` (`report_id`, `product_id`, `order_id`, `product_price`, `
 --
 -- Table structure for table `slides`
 --
--- Creation: Apr 14, 2017 at 12:24 AM
+-- Creation: Apr 24, 2017 at 03:57 AM
 --
-
 
 DROP TABLE IF EXISTS `slides`;
 CREATE TABLE IF NOT EXISTS `slides` (
-  `slide_id` int(10) NOT NULL,
+  `slide_id` int(10) NOT NULL AUTO_INCREMENT,
   `slide_title` varchar(255) NOT NULL,
-  `slide_image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `slide_image` text NOT NULL,
+  PRIMARY KEY (`slide_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONS FOR TABLE `slides`:
@@ -206,16 +216,17 @@ INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_image`) VALUES
 --
 -- Table structure for table `users`
 --
--- Creation: Apr 14, 2017 at 12:24 AM
+-- Creation: Apr 24, 2017 at 03:57 AM
 --
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- RELATIONS FOR TABLE `users`:
@@ -228,80 +239,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`) VALUES
 (5, 'admin', 'admin@gmail.com', 'admin');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cat_id`);
-
---
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
-
---
--- Indexes for table `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`report_id`);
-
---
--- Indexes for table `slides`
---
-ALTER TABLE `slides`
-  ADD PRIMARY KEY (`slide_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
---
--- AUTO_INCREMENT for table `reports`
---
-ALTER TABLE `reports`
-  MODIFY `report_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
---
--- AUTO_INCREMENT for table `slides`
---
-ALTER TABLE `slides`
-  MODIFY `slide_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
