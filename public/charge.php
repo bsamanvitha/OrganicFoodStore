@@ -41,10 +41,10 @@ $transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)
 
 $mailer = Swift_Mailer::newInstance($transport);
 
-$message = Swift_Message::newInstance('Here is your order!')
+$message = Swift_Message::newInstance('Your OFS Order!')
     ->setFrom(array('ofsbusiness2017@gmail.com' => 'OrganicFoodStore'))
     ->setTo(array($email => $first_name . " " . $last_name))
-    ->setBody('Hello this is the <strong>message</strong> itself. It can be text or <h1>HTML</h1>.', 'text/html'); // Need to add tracking url in here
+    ->setBody('Thank you for shopping at <strong>OFS</strong>! Here is your tracking URL: <h1><a href= "http://localhost/OrganicFoodStore/public/tracking.php">Track Your Package</a></h1>', 'text/html'); // Need to add tracking url in here
   //getting the text data from the fields
                   
 
