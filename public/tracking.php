@@ -49,7 +49,7 @@ if(isset($_GET['order'])){
         var order_address = $(xml).find("address").text();
         var order_timestamp = $(xml).find("timestamp").text();
 
-        geocodeAddress(geocoder, map, order_address);
+        geocodeAddress(geocoder, map, order_address, null);
         calcRoute(directionsService, directionsDisplay, warehouse_address, order_address).then((route_info) => {
           getDuration(distanceService, warehouse_address, order_address).then((duration) => {
             // have legs and duration and timestamp and currenttime, tracking algorithm can happen!
@@ -60,13 +60,18 @@ if(isset($_GET['order'])){
             var currentTime = new Date().getTime() / 1000;
             var orderTime = new Date(order_timestamp).getTime() / 1000;
 
-            var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+            //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
-            var diff = orderTime - currentTime;
-            if(diff > 0){
+            //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+            var image = '../resources/uploads/truck.png';
+
+            var diff = (orderTime + duration.value) - currentTime;
+
+            if(diff < 0){
               //place marker at destination
               console.log("reached destination");
-              setMarker(map, order_address, image);
+              geocodeAddress(geocoder, map, order_address, image);
 
             } else {
               var currStep;
@@ -80,7 +85,7 @@ if(isset($_GET['order'])){
                 }
               }
               //place marker at step
-              console.log("in transit");
+              console.log("in transit: " + diff);
 
               setMarker(map, currStep.start_location, image);
             }
@@ -92,11 +97,15 @@ if(isset($_GET['order'])){
 
   }
 
-  function geocodeAddress(geocoder, resultsMap, address) {
+  function geocodeAddress(geocoder, resultsMap, address, image) {
    geocoder.geocode({'address': address}, function(results, status) {
      if (status === 'OK') {
        resultsMap.setCenter(results[0].geometry.location);
-       setMarker(resultsMap, results[0].geometry.location);
+       if(image){
+         setMarker(resultsMap, results[0].geometry.location, image);
+       } else {
+         setMarker(resultsMap, results[0].geometry.location);
+       }
      } else {
        alert('Geocode was not successful for the following reason: ' + status);
      }
