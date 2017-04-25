@@ -38,6 +38,9 @@ $url = parse_url(getenv("mysql://bad8f37e5eda46:8035b0f5@us-cdbr-iron-east-03.cl
 $connection = mysqli_connect("us-cdbr-iron-east-03.cleardb.net", "bad8f37e5eda46", "8035b0f5", "heroku_5003a71979fc0af");
 $connection = mysqli_connect(localhost, root, "", "database");
 
+$obj_connection = new mysqli(localhost, root, "", "database");
+
+
 
 require_once("functions.php");
 require_once("cart.php");

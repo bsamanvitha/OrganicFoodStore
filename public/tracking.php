@@ -1,56 +1,178 @@
-<?php require_once("../resources/config.php"); ?>
+<?php require_once("../resources/config.php");
+if(isset($_GET['order'])){
+  $q = "SELECT *
+        FROM orders
+        WHERE order_id={$_GET['order']}";
+  if($order = $obj_connection->query($q)){
+    $row = $order->fetch_assoc();
+    $order_address = $row['address'];
+  } else {
+    $error = $obj_connection->error;
+  }
+}
+?>
 
-<?php include(TEMPLATE_FRONT . DS . "header.php") ?>
-
+<?php include(TEMPLATE_FRONT . DS . "header.php");?>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
 <body>
+  <div id="map" style="width:75%;height:400px"></div>
 
-  <div id="map" style="width:75%;height:600px"></div>
 
   <script>
-           /*
-           var map;
-           var route;
-           var routeCoords = [];
-           var traveledRoute;
-           //var marker;
-           function initMap() {
-               var directionsService = new google.maps.DirectionsService;
-               var directionsDisplay = new google.maps.DirectionsRenderer;
-               var mapCanvas = document.getElementById("map");
-               var mapOptions = {
-                   center: new google.maps.LatLng(37.3, -121.9),
-                   zoom: 10
-               }
-               map = new google.maps.Map(mapCanvas, mapOptions);
-               directionsDisplay.setMap(map);
-               calculateAndDisplayRoute(directionsService, directionsDisplay);
-               
-               var position1 = {lat: -25.363, lng: 131.044}; //source
-               var position2 = {lat: -25.363, lng: 131.044}; //destination
-               var marker1 = new google.maps.Marker({
-         		 position: position1,
-         		 map: map
-      		   });
-           }*/
-           
-     	 		function initMap() {
-       			var generalLocation = {lat: 37.3, lng: -121.9};
-       			var source = {lat: 37.3688, lng: -122.036};
-       			var destination = {lat: 37.77, lng: -122.42};
-       			var map = new google.maps.Map(document.getElementById('map'), {
-        			  zoom: 6,
-         			  center: generalLocation
-       			 });
-        		var marker1 = new google.maps.Marker({
-         		 position: source,
-         		 map: map
-       			 });
-       			var marker2 = new google.maps.Marker({
-         		 position: destination,
-         		 map: map
-       			 });
-      			}
+  var map;
+  var route;
+  var routeCoords = [];
+  var traveledRoute;
+  var baseUrl = "http://localhost/OrganicFoodStore/public/orderxml.php?order="
+  var warehouse_address = "1271 W El Camino Real, Sunnyvale, CA 94086";
+  //var marker;
+  function initMap() {
+      var directionsService = new google.maps.DirectionsService;
+      var directionsDisplay = new google.maps.DirectionsRenderer;
+      var distanceService = new google.maps.DistanceMatrixService();
+      var geocoder = new google.maps.Geocoder();
 
+      var mapCanvas = document.getElementById("map");
+      var mapOptions = {
+          center: new google.maps.LatLng(37.5, -121.9),
+          zoom: 10
+      }
+      map = new google.maps.Map(mapCanvas, mapOptions);
+      directionsDisplay.setMap(map);
+      //calculateAndDisplayRoute(directionsService, directionsDisplay);
+      geocodeAddress(geocoder, map, warehouse_address);
+      var xmlUrl = baseUrl+getURLParameter('order');
+      downloadUrl(xmlUrl, function(data){
+        var xml = data;
+        var order_address = $(xml).find("address").text();
+        var order_timestamp = $(xml).find("timestamp").text();
+
+        geocodeAddress(geocoder, map, order_address);
+        calcRoute(directionsService, directionsDisplay, warehouse_address, order_address).then((route_info) => {
+          getDuration(distanceService, warehouse_address, order_address).then((duration) => {
+            // have legs and duration and timestamp and currenttime, tracking algorithm can happen!
+            console.log(route_info);
+            console.log(duration);
+            var steps = route_info.legs[0].steps;
+            console.log(steps[0].start_location.lat);
+            var currentTime = new Date().getTime() / 1000;
+            var orderTime = new Date(order_timestamp).getTime() / 1000;
+
+            var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+            var diff = orderTime - currentTime;
+            if(diff > 0){
+              //place marker at destination
+              console.log("reached destination");
+              setMarker(map, order_address, image);
+
+            } else {
+              var currStep;
+              var j = 0;
+              for(var i = 0; i < steps.length; i++){
+                if(j < diff){
+                  j += steps[i].duration;
+                } else {
+                  currStep = steps[i];
+                  break;
+                }
+              }
+              //place marker at step
+              console.log("in transit");
+
+              setMarker(map, currStep.start_location, image);
+            }
+          });
+        });
+
+      });
+
+
+  }
+
+  function geocodeAddress(geocoder, resultsMap, address) {
+   geocoder.geocode({'address': address}, function(results, status) {
+     if (status === 'OK') {
+       resultsMap.setCenter(results[0].geometry.location);
+       setMarker(resultsMap, results[0].geometry.location);
+     } else {
+       alert('Geocode was not successful for the following reason: ' + status);
+     }
+   });
+ }
+
+ function setMarker(m, p, i){
+   var marker = new google.maps.Marker({
+     map: m,
+     position: p,
+   });
+   if(i){
+     marker.setIcon(i);
+   }
+ }
+
+ function calcRoute(directionsService, directionsDisplay, start, end) {
+  return new Promise(function (resolve) {
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING'
+    };
+    directionsService.route(request, function(result, status) {
+      if (status == 'OK') {
+        directionsDisplay.setDirections(result);
+        //result
+        resolve(result.routes[0]);
+      }
+    });
+  });
+}
+
+function getDuration(distanceService, warehouse_address, order_address){
+  return new Promise(function (resolve){
+    distanceService.getDistanceMatrix(
+    {
+      origins: [warehouse_address],
+      destinations:  [order_address],
+      travelMode: 'DRIVING',
+      avoidHighways: false,
+      avoidTolls: false
+    },
+    function distanceCallback(response, status) {
+        if (status == 'OK') {
+          var distobj = response.rows[0].elements[0];
+          var distance = distobj.distance;
+          var duration = distobj.duration;
+          resolve(duration);
+        } else {
+          console.log("you dun messed up");
+        }
+    });
+  });
+}
+
+
+
+ function downloadUrl(url,callback) {
+   var request = new XMLHttpRequest;
+   request.open('GET', url, true);
+   console.log(url);
+   request.onreadystatechange = function() {
+     if (request.readyState == 4  && request.status == 200) {
+       console.log(request.response);
+       callback(request.response);
+     }
+   };
+   request.send(null);
+ }
+
+ function getURLParameter(name) {
+   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+ }
+
+ function doNothing() {}
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiOH1ikwHyClRXBnlBDnmoh4zzupZslPI&callback=initMap"></script>
 
