@@ -1,7 +1,3 @@
-### 4.8.1 2017-04-24
-
-* Allow nested field `payout_schedule` to be updated
-
 ### 4.8.0 2017-04-20
 
 * Add `\Stripe\Stripe::setLogger()` to support an external PSR-3 compatible logger
