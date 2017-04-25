@@ -36,7 +36,6 @@ defined("database") ? null : define("database",  "ecom");
 
 $url = parse_url(getenv("mysql://b3d9ee188ed2f7:421dbc95@us-cdbr-iron-east-03.cleardb.net/heroku_8aef2295c455e71?reconnect=true"));
 $connection = mysqli_connect("us-cdbr-iron-east-03.cleardb.net", "b3d9ee188ed2f7", "421dbc95", "heroku_8aef2295c455e71");
-
 $obj_connection = new mysqli(localhost, root, "", "database");
 
 
