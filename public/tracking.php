@@ -25,7 +25,7 @@ if(isset($_GET['order'])){
   var route;
   var routeCoords = [];
   var traveledRoute;
-  var baseUrl = "http://localhost/OrganicFoodStore/public/orderxml.php?order="
+  var baseUrl = "http://buyorganics.herokuapp.com/public/orderxml.php?order="
   var warehouse_address = "1271 W El Camino Real, Sunnyvale, CA 94086";
   //var marker;
   function initMap() {
@@ -59,21 +59,11 @@ if(isset($_GET['order'])){
             console.log(steps[0].start_location.lat);
             var currentTime = new Date().getTime() / 1000;
             var orderTime = new Date(order_timestamp).getTime() / 1000;
-
-            //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-
-            //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-
             var image = '../resources/uploads/truck.png';
-
             var diff = (orderTime + duration.value) - currentTime;
-
-
             var progress = (currentTime - orderTime);
 
             if(diff < 0){
-              //place marker at destination
-
               console.log("reached destination");
               geocodeAddress(geocoder, map, order_address, image);
 
