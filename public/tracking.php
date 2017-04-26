@@ -42,14 +42,14 @@ if(isset($_GET['order'])){
       map = new google.maps.Map(mapCanvas, mapOptions);
       directionsDisplay.setMap(map);
       //calculateAndDisplayRoute(directionsService, directionsDisplay);
-      geocodeAddress(geocoder, map, warehouse_address);
+      //geocodeAddress(geocoder, map, warehouse_address);
       var xmlUrl = baseUrl+getURLParameter('order');
       downloadUrl(xmlUrl, function(data){
         var xml = data;
         var order_address = $(xml).find("address").text();
         var order_timestamp = $(xml).find("timestamp").text();
 
-        geocodeAddress(geocoder, map, order_address, null);
+        //geocodeAddress(geocoder, map, order_address, null);
         calcRoute(directionsService, directionsDisplay, warehouse_address, order_address).then((route_info) => {
           getDuration(distanceService, warehouse_address, order_address).then((duration) => {
             // have legs and duration and timestamp and currenttime, tracking algorithm can happen!
@@ -68,26 +68,34 @@ if(isset($_GET['order'])){
 
             var diff = (orderTime + duration.value) - currentTime;
 
+
+            var progress = (currentTime - orderTime);
+
             if(diff < 0){
               //place marker at destination
+
               console.log("reached destination");
               geocodeAddress(geocoder, map, order_address, image);
 
             } else {
               var currStep;
+              var progress_steps = [];
               var j = 0;
+              console.log(progress);
               for(var i = 0; i < steps.length; i++){
-                if(j < diff){
-                  j += steps[i].duration;
+                if(j < progress){
+                  console.log(steps[i].duration);
+                  progress_steps.push(steps[i]);
+                  j += steps[i].duration.value;
                 } else {
-                  currStep = steps[i];
+                  currStep = google.maps.geometry.encoding.decodePath(steps[i].encoded_lat_lngs)[0];
                   break;
                 }
               }
               //place marker at step
               console.log("in transit: " + diff);
-
-              setMarker(map, currStep.start_location, image);
+              //setMarker(map, currStep, image);
+              animate(map, progress_steps, image);
             }
           });
         });
@@ -181,7 +189,42 @@ function getDuration(distanceService, warehouse_address, order_address){
    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
  }
 
- function doNothing() {}
+ function animate( map, progress_steps, image) {
+   var steps = progress_steps;
+   var droute = new google.maps.Polyline({
+                    path: [],
+                    geodesic : true,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    editable: false,
+                    map:map
+   });
+   var marker = new google.maps.Marker({map:map, icon:image});
+   marker.setPosition(steps[0].path[0]);
+   var routeCoords = [];
+   for (var i = 0; i < steps.length; i++) {
+     var path = google.maps.geometry.encoding.decodePath(steps[i].encoded_lat_lngs)[0];
+     routeCoords.push(path);
+ }
+ moveMarker(marker, 0, routeCoords);
+
+  }
+
+  function moveMarker(marker, index, routeCoords) {
+      //route.getPath().push(routeCoords[index]);
+      marker.setPosition(routeCoords[index]);
+      console.log(routeCoords[index]);
+      index++;
+      if(index < routeCoords.length){
+        setTimeout(function(){moveMarker(marker, index, routeCoords);}, 80);
+      } else {
+        marker.setPosition(routeCoords[routeCoords.length - 1]);
+      }
+  }
+
+
+
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiOH1ikwHyClRXBnlBDnmoh4zzupZslPI&callback=initMap"></script>
 
