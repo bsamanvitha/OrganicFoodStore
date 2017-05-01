@@ -25,7 +25,8 @@ if(isset($_GET['order'])){
   var route;
   var routeCoords = [];
   var traveledRoute;
-  var baseUrl = "http://buyorganics.herokuapp.com/public/orderxml.php?order="
+  var baseUrl = "http://localhost/OrganicFoodStore/public/orderxml.php?order="
+  //var baseUrl = "http://buyorganics.herokuapp.com/public/orderxml.php?order="
   var warehouse_address = "1271 W El Camino Real, Sunnyvale, CA 94086";
   //var marker;
   function initMap() {

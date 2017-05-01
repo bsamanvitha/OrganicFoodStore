@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2017 at 12:07 AM
+-- Generation Time: May 01, 2017 at 03:08 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -27,7 +27,7 @@ USE `database`;
 --
 -- Table structure for table `categories`
 --
--- Creation: Apr 24, 2017 at 10:04 PM
+-- Creation: Apr 26, 2017 at 04:58 AM
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -51,7 +51,7 @@ INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 --
 -- Table structure for table `orders`
 --
--- Creation: Apr 24, 2017 at 10:04 PM
+-- Creation: Apr 26, 2017 at 04:58 AM
 --
 
 DROP TABLE IF EXISTS `orders`;
@@ -84,14 +84,17 @@ INSERT INTO `orders` (`order_id`, `first_name`, `last_name`, `email`, `address`,
 (13, 't', 't', 'ofsbuyer2017@gmail.com', 'd', '2017-04-24 19:46:23'),
 (14, 't', 't', 'naomicampbell951@gmail.com', 't', '2017-04-24 19:52:55'),
 (15, 't', 't', 'naomicampbell951@gmail.com', 't', '2017-04-24 19:54:12'),
-(16, 'Bob', 'Foods', 'ofsbuyer2017@gmail.com', '1287 Gary Boulevard San Francisco', '2017-04-24 20:33:17');
+(16, 'Bob', 'Foods', 'ofsbuyer2017@gmail.com', '1287 Gary Boulevard San Francisco', '2017-04-24 20:33:17'),
+(17, 'Kim', 'Le', 'annle7874@gmail.com', '398 Grant Road, Mountain View, CA', '2017-05-01 00:47:03'),
+(18, 'Kyle', 'Brown', 'annle7874@gmail.com', '957 Foxglove Drive', '2017-05-01 01:01:29'),
+(19, 'Leo', 'Walker', 'annle7874@gmail.com', '398 Grant Road, Mountain View, CA', '2017-05-01 01:07:04');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
 --
--- Creation: Apr 24, 2017 at 10:04 PM
+-- Creation: Apr 26, 2017 at 04:58 AM
 --
 
 DROP TABLE IF EXISTS `products`;
@@ -154,7 +157,7 @@ INSERT INTO `products` (`product_id`, `product_title`, `product_category_id`, `p
 --
 -- Table structure for table `reports`
 --
--- Creation: Apr 24, 2017 at 10:04 PM
+-- Creation: Apr 26, 2017 at 04:58 AM
 --
 
 DROP TABLE IF EXISTS `reports`;
@@ -182,7 +185,7 @@ INSERT INTO `reports` (`report_id`, `product_id`, `order_id`, `product_price`, `
 --
 -- Table structure for table `slides`
 --
--- Creation: Apr 24, 2017 at 10:04 PM
+-- Creation: Apr 26, 2017 at 04:58 AM
 --
 
 DROP TABLE IF EXISTS `slides`;
@@ -206,7 +209,7 @@ INSERT INTO `slides` (`slide_id`, `slide_title`, `slide_image`) VALUES
 --
 -- Table structure for table `users`
 --
--- Creation: Apr 24, 2017 at 10:04 PM
+-- Creation: Apr 26, 2017 at 04:58 AM
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -278,7 +281,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `products`
 --
