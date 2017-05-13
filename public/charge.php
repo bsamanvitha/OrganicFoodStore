@@ -18,11 +18,17 @@ $last_name = $_POST['last_name'];
 $email = $_POST['email'];
 $address = $_POST['address'];
 
+
 $insert_product = "INSERT INTO orders(first_name, last_name, email, address, timestamp) VALUES ('$first_name', '$last_name', '$email', '$address', CURTIME())";
 $insert_pro = mysqli_query($connection, $insert_product);
 $order_id = mysqli_insert_id($connection);
 $tracking_url = "http://localhost/OrganicFoodStore/public/tracking.php?order=" . $order_id;
 //$tracking_url = "http://buyorganics.herokuapp.com/public/tracking.php?order=" . $order_id;
+
+if ($insert_pro) {
+  echo "<script>alert('Your order has been inserted! Please check your email for the tracking link!')</script>";
+}
+
 
 $transport = Swift_SmtpTransport::newInstance('ssl://smtp.gmail.com', 465)
     ->setUsername('ofsbusiness2017@gmail.com')
@@ -38,6 +44,9 @@ $message = Swift_Message::newInstance('Your OFS Order!')
 
 
 $mailer->send($message);
+
+
+
 
 header("Location: http://localhost/OrganicFoodStore/public/"); /* Redirect browser */
 //header("Location: http://buyorganics.herokuapp.com/public/"); /* Redirect browser */

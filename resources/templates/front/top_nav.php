@@ -25,13 +25,11 @@
                         <a href="shop.php">Products</a>
                     </li>
 
-                    <li>
-                        <a href="login.php">Log In</a>
-                    </li>
+
 
                     <!--
                     <li>
-                        <a href="admin">Admin</a>
+                        <a href="login.php">Log In</a>
                     </li>
                     -->
 
@@ -42,7 +40,7 @@
                      <li >
                         <a href="about.php">About Us</a>
                     </li>
-                
+
 
                     <li>
                         <a href="checkout.php">Shopping Cart</a>
@@ -56,7 +54,7 @@
                             </ul>
                     </li>
 
-                    
+
                     <li>
                     <div id="form">
                           <form method="get" action="results.php" enctype="multipart/form-data">
@@ -66,7 +64,7 @@
                     </li>
                 </ul>
 
-         
+
             </div>
             <!-- /.navbar-collapse -->
         </div>

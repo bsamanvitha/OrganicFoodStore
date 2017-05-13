@@ -26,7 +26,6 @@ if(isset($_GET['order'])){
   var routeCoords = [];
   var traveledRoute;
   var baseUrl = "http://localhost/OrganicFoodStore/public/orderxml.php?order="
-  //var baseUrl = "http://buyorganics.herokuapp.com/public/orderxml.php?order="
   var warehouse_address = "1271 W El Camino Real, Sunnyvale, CA 94086";
   //var marker;
   function initMap() {
@@ -34,7 +33,6 @@ if(isset($_GET['order'])){
       var directionsDisplay = new google.maps.DirectionsRenderer;
       var distanceService = new google.maps.DistanceMatrixService();
       var geocoder = new google.maps.Geocoder();
-
       var mapCanvas = document.getElementById("map");
       var mapOptions = {
           center: new google.maps.LatLng(37.5, -121.9),
@@ -49,7 +47,6 @@ if(isset($_GET['order'])){
         var xml = data;
         var order_address = $(xml).find("address").text();
         var order_timestamp = $(xml).find("timestamp").text();
-
         //geocodeAddress(geocoder, map, order_address, null);
         calcRoute(directionsService, directionsDisplay, warehouse_address, order_address).then((route_info) => {
           getDuration(distanceService, warehouse_address, order_address).then((duration) => {
@@ -60,14 +57,15 @@ if(isset($_GET['order'])){
             console.log(steps[0].start_location.lat);
             var currentTime = new Date().getTime() / 1000;
             var orderTime = new Date(order_timestamp).getTime() / 1000;
+            //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+            //var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
             var image = '../resources/uploads/truck.png';
             var diff = (orderTime + duration.value) - currentTime;
             var progress = (currentTime - orderTime);
-
             if(diff < 0){
+              //place marker at destination
               console.log("reached destination");
               geocodeAddress(geocoder, map, order_address, image);
-
             } else {
               var currStep;
               var progress_steps = [];
@@ -90,12 +88,8 @@ if(isset($_GET['order'])){
             }
           });
         });
-
       });
-
-
   }
-
   function geocodeAddress(geocoder, resultsMap, address, image) {
    geocoder.geocode({'address': address}, function(results, status) {
      if (status === 'OK') {
@@ -110,7 +104,6 @@ if(isset($_GET['order'])){
      }
    });
  }
-
  function setMarker(m, p, i){
    var marker = new google.maps.Marker({
      map: m,
@@ -120,7 +113,6 @@ if(isset($_GET['order'])){
      marker.setIcon(i);
    }
  }
-
  function calcRoute(directionsService, directionsDisplay, start, end) {
   return new Promise(function (resolve) {
     var request = {
@@ -137,7 +129,6 @@ if(isset($_GET['order'])){
     });
   });
 }
-
 function getDuration(distanceService, warehouse_address, order_address){
   return new Promise(function (resolve){
     distanceService.getDistanceMatrix(
@@ -160,9 +151,6 @@ function getDuration(distanceService, warehouse_address, order_address){
     });
   });
 }
-
-
-
  function downloadUrl(url,callback) {
    var request = new XMLHttpRequest;
    request.open('GET', url, true);
@@ -175,11 +163,9 @@ function getDuration(distanceService, warehouse_address, order_address){
    };
    request.send(null);
  }
-
  function getURLParameter(name) {
    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
  }
-
  function animate( map, progress_steps, image) {
    var steps = progress_steps;
    var droute = new google.maps.Polyline({
@@ -199,9 +185,7 @@ function getDuration(distanceService, warehouse_address, order_address){
      routeCoords.push(path);
  }
  moveMarker(marker, 0, routeCoords);
-
   }
-
   function moveMarker(marker, index, routeCoords) {
       //route.getPath().push(routeCoords[index]);
       marker.setPosition(routeCoords[index]);
@@ -213,9 +197,6 @@ function getDuration(distanceService, warehouse_address, order_address){
         marker.setPosition(routeCoords[routeCoords.length - 1]);
       }
   }
-
-
-
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiOH1ikwHyClRXBnlBDnmoh4zzupZslPI&callback=initMap"></script>
 
